@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altoke Servicio Técnico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Altoke Servicio Técnico</h1>
+        <nav>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="servicio">
+                <h3>Reparación de Computadoras</h3>
+                <p>Diagnóstico y reparación de hardware y software.</p>
+            </div>
+            <div class="servicio">
+                <h3>Reparación de Celulares</h3>
+                <p>Soluciones rápidas y efectivas para problemas de hardware y software en tu celular.</p>
+            </div>
+            <div class="servicio">
+                <h3>Venta de Computadoras</h3>
+                <p>Equipos de alta calidad disponibles en MercadoLibre.</p>
+            </div>
+            <div class="servicio">
+                <h3>Programación y Desarrollo</h3>
+                <p>Desarrollo de aplicaciones y sitios web personalizados.</p>
+            </div>
+        </section>
+
+        <section id="testimonios">
+            <h2>Testimonios de Clientes</h2>
+            <blockquote>
+                <p>"Excelente servicio, mi computadora quedó como nueva. Muy recomendado."</p>
+                <cite>- Juan Pérez</cite>
+            </blockquote>
+            <blockquote>
+                <p>"Repararon mi celular en tiempo récord. Gran atención y profesionalismo."</p>
+                <cite>- María Gómez</cite>
+            </blockquote>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Para consultas o citas, por favor contáctanos:</p>
+            <ul>
+                <li>Email: <a href="mailto:info@altokeserviciotecnico.com">info@altokeserviciotecnico.com</a></li>
+                <li>Teléfono: +54 9 11 1234 5678</li>
+                <li>Facebook: <a href="https://www.facebook.com/AltokeServicioTecnico" target="_blank">Altoke Servicio Técnico</a></li>
+            </ul>
+            <form action="https://formspree.io/f/{your-form-id}" method="POST">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Altoke Servicio Técnico. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
