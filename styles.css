@@ -62,9 +62,9 @@ section {
 }
 
 h2 {
-    border-bottom: 2px solid #000000; /* Negro para la línea del encabezado */
+    border-bottom: 2px solid #333;
     padding-bottom: 0.5rem;
-    color: #000000; /* Negro para los encabezados */
+    text-align: center; /* Centrar el título */
 }
 
 .servicio {
@@ -73,21 +73,44 @@ h2 {
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
+    text-align: center; /* Centrar el contenido del servicio */
 }
 
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    cursor: pointer;
+    background: #f0f0f0; /* Color de fondo de la pregunta */
+    padding: 1rem; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.faq-answer {
+    max-height: 0; /* Altura inicial */
+    overflow: hidden; /* Oculta el contenido que desborda */
+    transition: max-height 0.4s ease; /* Transición para la altura */
+}
+
+
+
 blockquote {
-    background: #FFFFFF; /* Blanco para el fondo de las citas */
-    border-left: 10px solid #FF0000; /* Rojo para el borde izquierdo */
+    background: #fff;
+    border-left: 10px solid #333;
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 5px;
+    text-align: center; /* Centrar el contenido de los testimonios */
 }
 
 form {
-    background: #FFFFFF; /* Blanco para el fondo del formulario */
+    background: #fff;
     padding: 1rem;
-    border: 1px solid #000000; /* Negro para el borde */
+    border: 1px solid #ddd;
     border-radius: 5px;
+    text-align: center; /* Centrar el formulario */
 }
 
 form label {
@@ -128,10 +151,12 @@ footer {
     text-align: center;
     padding: 1rem 0;
 }
-
+contacto {
+    text-align: center;
+}
 .contact-icons {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centrar los íconos de contacto */
     margin-top: 1rem;
 }
 
@@ -139,4 +164,24 @@ footer {
     width: 40px; /* Ajusta el tamaño según sea necesario */
     height: auto;
     margin: 0 10px; /* Espaciado entre íconos */
+}
+
+#scrollToTop {
+    position: fixed; /* Posición fija */
+    bottom: 20px; /* Distancia desde el fondo */
+    right: 20px; /* Distancia desde la derecha */
+    background-color: #FF0000; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    padding: 10px; /* Relleno */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    font-size: 18px; /* Tamaño de fuente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background 0.3s ease; /* Transición suave */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+#scrollToTop:hover {
+    background-color: #D40000; /* Fondo más oscuro al pasar el cursor */
 }
