@@ -14,11 +14,6 @@ header {
     text-align: center;
 }
 
-header img {
-    width: 40%; /* O puedes usar un valor fijo como 300px */
-    height: auto; /* Mantiene la proporción de la imagen */
-}
-
 .header-image {
     text-align: center; /* Centra la imagen */
     margin-bottom: 1rem; /* Espacio debajo de la imagen */

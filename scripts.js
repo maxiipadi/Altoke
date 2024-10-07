@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = 'none';
         togglePrices('sgo');
         updateContactLinks('sgo'); // Actualiza enlaces para Santiago del Estero
+        sendLocationToGoogleApps('Santiago del Estero'); // Enviar ubicación
     });
 
     // Selección de Jujuy
@@ -73,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = 'none';
         togglePrices('jujuy');
         updateContactLinks('jujuy'); // Actualiza enlaces para Jujuy
+        sendLocationToGoogleApps('Jujuy'); // Enviar ubicación
     });
 
     // Función para mostrar los precios correspondientes
@@ -103,6 +105,29 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 link.href = jujuyUrl;
             }
+        });
+    }
+
+    // Función para enviar la ubicación al Google Apps Script
+    function sendLocationToGoogleApps(location) {
+        fetch("https://script.google.com/macros/s/AKfycbxWRKSjAR5MymL0OGeh0JZxTkUfJqxm19FDzfOPN_pInhVXf9pXQQACjpgGxE9E7GUyUw/exec", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ location: location }) // Enviando la ubicación seleccionada
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error en la solicitud: " + response.statusText);
+            }
+            return response.json(); // Convertir la respuesta a JSON
+        })
+        .then(data => {
+            console.log("Respuesta del servidor:", data); // Manejar la respuesta
+        })
+        .catch(error => {
+            console.error("Error al enviar la ubicación:", error); // Manejar errores
         });
     }
 });
