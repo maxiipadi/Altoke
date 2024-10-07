@@ -11,73 +11,148 @@
 
 <body>
     <header>
-        <h1>Altoke Servicio Técnico</h1>
+        <h1>Tu Taller de Confianza</h1>
         <div class="header-image">
-            <img src="https://github.com/maxiipadi/maxiipadi.github.io/raw/main/splash.jpg" alt="Altoke Servicio Técnico">
+            <img src="https://github.com/maxiipadi/maxiipadi.github.io/raw/main/wal.jpg" alt="Altoke Servicio Técnico">
         </div>
         <nav>
             <ul>
                 <li><a href="#servicios" class="button">Servicios</a></li>
                 <li><a href="#contacto" class="button">Contacto</a></li>
-                <li><a href="#faq" class="button">FAQs</a></li> <!-- Nuevo botón -->
+                <li><a href="#faq" class="button">FAQs</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+
+        <div id="locationModal" class="modal">
+            <div class="modal-content">
+                <h1>¡Bienvenido! 😊</h1>
+                <h2> ¿De dónde eres? </h2>
+                <button id="sgoButton">📍 Santiago del Estero 🌾</button>
+                <button id="jujuyButton">📍 Jujuy 🌵</button>
+            </div>
+        </div>
+        
         <section id="servicios">
-            <h2>Nuestros Servicios</h2>
+            <!-- Desbloqueo de Netbooks del Gobierno -->
             <div class="servicio">
                 <h3>🔓 Desbloqueo de Netbooks del Gobierno</h3>
-                <p><strong>Net Juana Manso/Conectar Igualdad:</strong> $10.000</p>
-                <p><strong>Modelos Anteriores:</strong> $8.000</p>
+                <p><strong>Net Juana Manso/Conectar Igualdad:</strong>
+                    <span class="precio-sgo">$10.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$15.000</span>
+                </p>
+                <p>Modelos Anteriores:
+                    <span class="precio-sgo">$8.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$12.000</span>
+                </p>
             </div>
+        
+            <!-- Instalaciones y Mantenimientos -->
             <div class="servicio">
                 <h3>💻 Instalaciones y Mantenimientos</h3>
-                <p><strong>Instalación Completa de Windows:</strong> $10.000 (Incluye drivers, Office, antivirus y programas esenciales)</p>
-                <p><strong>Mantenimiento Completo:</strong> $20.000 (Limpieza interna, cambio de pasta térmica, limpieza de coolers + instalación de Windows)</p>
-                <p><strong>Configuración de BIOS:</strong> $8.000</p>
-                <p><strong>Instalación de Hardware:</strong> $6.000</p>
-                <p><strong>Instalación de Drivers:</strong> $8.000</p>
-                <p><strong>Respaldo de Datos (hasta 50GB):</strong> $2.000</p>
+                <p><strong>Instalación Completa de Windows:</strong> 
+                    <span class="precio-sgo">$10.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$15.000</span>
+                </p>
+                <p><strong>Mantenimiento Completo:</strong> 
+                    <span class="precio-sgo">$20.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$25.000</span>
+                </p>
+                <p><strong>Configuración de BIOS:</strong> 
+                    <span class="precio-sgo">$8.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$8.000</span>
+                </p>
+                <p><strong>Instalación de Hardware:</strong> 
+                    <span class="precio-sgo">$6.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$8.000</span>
+                </p>
+                <p><strong>Instalación de Drivers:</strong> 
+                    <span class="precio-sgo">$8.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$8.000</span>
+                </p>
+                <p><strong>Respaldo de Datos (hasta 50GB):</strong> 
+                    <span class="precio-sgo">$2.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$4.000</span>
+                </p>
             </div>
+        
+            <!-- Reparaciones Especializadas -->
             <div class="servicio">
                 <h3>⚙️ Reparaciones Especializadas</h3>
-                <p><strong>Reprogramación de BIOS:</strong> Desde $20.000</p>
-                <p><strong>Limpieza de Virus/Malware:</strong> $7.000</p>
-                <p><strong>Reparación de Placas Madre (Netbooks del Gobierno):</strong> $15.000</p>
+                <p><strong>Reprogramación de BIOS:</strong> 
+                    <span class="precio-sgo">Desde $20.000</span> 
+                    <span class="precio-jujuy" style="display:none;">Desde $40.000</span>
+                </p>
+                <p><strong>Limpieza de Virus/Malware (Sin perdidad de datos):</strong> 
+                    <span class="precio-sgo">$10.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$10.000</span>
+                </p>
+                <p><strong>Reparación de Placas Madre (Netbooks del Gobierno):</strong> 
+                    <span class="precio-sgo">$15.000</span> 
+                    <span class="precio-jujuy" style="display:none;">$16.000</span>
+                </p>
             </div>
+        
+            <!-- Reparaciones de Celulares -->
             <div class="servicio">
                 <h3>📱 Reparaciones de Celulares</h3>
-                <p><strong>Cambio de Módulo:</strong> Desde $30.000</p>
-                <p><strong>Cambio de Pin de Carga:</strong> Desde $10.000</p>
-                <p><strong>Cambio de Glass (Reparación de Pantalla):</strong> Desde $19.000</p>
-                <p><strong>Reparación de Placa Base:</strong> Desde $15.000</p>
-                <p><strong>Desbloqueo de Cuenta (Celulares):</strong> $10.000</p>
+                <p><strong>Cambio de Módulo:</strong> 
+                    <span class="precio-sgo">Desde $30.000</span> 
+                    <span class="precio-jujuy" style="display:none;">Desde $30.000</span>
+                </p>
+                <p><strong>Cambio de Pin de Carga:</strong> 
+                    <span class="precio-sgo">Desde $10.000</span> 
+                    <span class="precio-jujuy" style="display:none;">Desde $12.000</span>
+                </p>
+                <p><strong>Cambio de Glass (Reparación de Pantalla):</strong> 
+                    <span class="precio-sgo">Desde $19.000</span> 
+                    <span class="precio-jujuy" style="display:none;">#</span>
+                </p>
+                <p><strong>Reparación de Placa Base:</strong> 
+                    <span class="precio-sgo">Desde $15.000</span> 
+                    <span class="precio-jujuy" style="display:none;">#</span>
+                </p>
+                <p><strong>Desbloqueo de Cuenta (Celulares):</strong> 
+                    <span class="precio-sgo">$10.000</span> 
+                    <span class="precio-jujuy" style="display:none;">#</span>
+                </p>
             </div>
-            <div class="servicio">
+
+            <!-- Otros -->
+             <div class="servicio">
                 <h3>🔍 ¡Revisión Sin Cargo!</h3>
                 <p>Traé tu equipo y te damos un diagnóstico gratuito.</p>
-            </div>
-            <div class="servicio">
                 <h3>🔧 Garantía en Todos los Servicios</h3>
                 <p>En Altoke Servicio Técnico, ofrecemos garantía en todas nuestras reparaciones. ¡Tu equipo estará en las mejores manos!</p>
-            </div>
+             </div>
         </section>
+        
 
         <section id="contacto">
             <h2>Contacto</h2>
             <p>Para consultas o citas, por favor contáctanos:</p>
             <div class="contact-icons">
-                <a href="https://www.facebook.com/altokeservtec/" target="_blank">
+                <!-- Facebook -->
+                <a id="facebook-link" class="contact-link" data-sgo="https://www.facebook.com/altokeservtec/" data-jujuy="https://www.facebook.com/profile.php?id=100065417592160&mibextid=JRoKGi" target="_blank">
                     <img src="https://github.com/maxiipadi/maxiipadi.github.io/raw/main/facebook.png" alt="Facebook" class="contact-icon">
                 </a>
-                <a href="https://wa.me/5493854992929" target="_blank">
+                <!-- WhatsApp -->
+                <a id="whatsapp-link" class="contact-link" data-sgo="https://wa.me/5493854992929" data-jujuy="https://wa.me/5493885238366" target="_blank">
                     <img src="https://github.com/maxiipadi/maxiipadi.github.io/raw/main/whatsapp.png" alt="WhatsApp" class="contact-icon">
                 </a>
+                <!-- Instagram -->
+                <a id="instagram-link" class="contact-link" data-sgo="#" data-jujuy="https://www.instagram.com/l_toke.serviciotecnico/" target="_blank">
+                    <img src="https://github.com/maxiipadi/maxiipadi.github.io/raw/main/instagram.png" alt="Instagram" class="contact-icon">
+                </a>
+                <!-- TikTok -->
+                <a id="tiktok-link" class="contact-link" data-sgo="https://www.tiktok.com/@al.toke.serviciotecnico" data-jujuy="https://www.tiktok.com/@al.toke.serviciotecnico" target="_blank">
+                    <img src="https://github.com/maxiipadi/maxiipadi.github.io/raw/main/tiktok.png" alt="TikTok" class="contact-icon">
+                </a>
             </div>
-        </section>
-
+        </section>        
+        
         <section id="faq">
             <h2>Preguntas Frecuentes</h2>
             <div class="faq">
