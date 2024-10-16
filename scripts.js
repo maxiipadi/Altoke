@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Código para el acordeón
+    // Código para el acordeón de FAQs
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
@@ -63,31 +63,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Selección de Santiago del Estero
     sgoButton.addEventListener('click', function() {
+        console.log("Santiago del Estero seleccionado"); // Debugging
         modal.style.display = 'none';
         togglePrices('sgo');
-        updateContactLinks('sgo'); // Actualiza enlaces para Santiago del Estero
-        sendLocationToGoogleApps('Santiago del Estero'); // Enviar ubicación
+        updateContactLinks('sgo');
+        sendLocationToGoogleApps('Santiago del Estero');
+        showMap('sgo');
     });
 
-    // Selección de Jujuy
+    function togglePrices(location) {
+        // Aquí puedes implementar la lógica para mostrar u ocultar precios
+        console.log("Toggle precios para: " + location);
+        // Implementa la lógica necesaria aquí
+    }
+    
     jujuyButton.addEventListener('click', function() {
+        console.log("Jujuy seleccionado"); // Debugging
         modal.style.display = 'none';
         togglePrices('jujuy');
-        updateContactLinks('jujuy'); // Actualiza enlaces para Jujuy
-        sendLocationToGoogleApps('Jujuy'); // Enviar ubicación
+        updateContactLinks('jujuy');
+        sendLocationToGoogleApps('Jujuy');
+        showMap('jujuy');
     });
+    
 
-    // Función para mostrar los precios correspondientes
-    function togglePrices(location) {
-        const precioSgoElements = document.querySelectorAll('.precio-sgo');
-        const precioJujuyElements = document.querySelectorAll('.precio-jujuy');
+    // Función para mostrar el mapa correspondiente
+    function showMap(location) {
+        const mapaSgo = document.getElementById('mapaSgo');
+        const mapaJujuy = document.getElementById('mapaJujuy');
 
+        // Muestra el mapa correspondiente según la ubicación
         if (location === 'sgo') {
-            precioSgoElements.forEach(el => el.style.display = 'inline');
-            precioJujuyElements.forEach(el => el.style.display = 'none');
+            mapaSgo.style.display = 'block';
+            mapaJujuy.style.display = 'none';
         } else {
-            precioSgoElements.forEach(el => el.style.display = 'none');
-            precioJujuyElements.forEach(el => el.style.display = 'inline');
+            mapaSgo.style.display = 'none';
+            mapaJujuy.style.display = 'block';
         }
     }
 
@@ -100,11 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const jujuyUrl = link.getAttribute('data-jujuy');
 
             // Cambia el href según la ubicación
-            if (location === 'sgo') {
-                link.href = sgoUrl;
-            } else {
-                link.href = jujuyUrl;
-            }
+            link.href = location === 'sgo' ? sgoUrl : jujuyUrl;
         });
     }
 
@@ -130,4 +137,18 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Error al enviar la ubicación:", error); // Manejar errores
         });
     }
+
+    // Lógica para el acordeón de servicios
+    document.querySelectorAll('.servicio-titulo').forEach(titulo => {
+        titulo.addEventListener('click', () => {
+            const detalles = titulo.nextElementSibling;
+
+            // Alternar la visibilidad de la respuesta con un solo clic
+            if (detalles.style.maxHeight === "0px" || !detalles.style.maxHeight) {
+                detalles.style.maxHeight = detalles.scrollHeight + "px"; // Expande el contenido
+            } else {
+                detalles.style.maxHeight = "0px"; // Colapsa el contenido
+            }
+        });
+    });
 });

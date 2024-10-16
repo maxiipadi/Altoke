@@ -1,23 +1,22 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif; /* Fuente general de la página */
+    line-height: 1.6; /* Espaciado de línea para mejor legibilidad */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
     background-color: #FFFFFF; /* Blanco como fondo */
 }
 
 header {
     background: #000000; /* Negro para el encabezado */
     color: #FF0000; /* Rojo para el texto del encabezado */
-    padding: 1rem 0;
-    text-align: center;
+    padding: 1rem 0; /* Espaciado superior e inferior */
+    text-align: center; /* Centrar texto en el encabezado */
 }
 
 .header-image {
     text-align: center; /* Centra la imagen */
     margin-bottom: 1rem; /* Espacio debajo de la imagen */
-    
 }
 
 .header-image img {
@@ -27,26 +26,26 @@ header {
 }
 
 header h1 {
-    margin: 0;
+    margin: 0; /* Elimina margen por defecto del título */
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* Elimina viñetas de la lista */
+    padding: 0; /* Elimina padding por defecto */
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 10px;
+    display: inline; /* Coloca los elementos de la lista en línea */
+    margin: 0 10px; /* Espaciado horizontal entre los elementos de la lista */
 }
 
 nav ul li a {
     color: #FF0000; /* Rojo para los enlaces */
-    text-decoration: none;
+    text-decoration: none; /* Sin subrayado */
     padding: 10px 15px; /* Relleno para el estilo de botón */
     border: 2px solid #FF0000; /* Borde rojo */
     border-radius: 5px; /* Esquinas redondeadas */
-    transition: background 0.3s ease, color 0.3s ease; /* Transición suave */
+    transition: background 0.3s ease, color 0.3s ease; /* Transición suave para el fondo y color del texto */
 }
 
 nav ul li a:hover {
@@ -55,34 +54,50 @@ nav ul li a:hover {
 }
 
 main {
-    padding: 1rem;
+    padding: 1rem; /* Espacio en el área principal */
 }
 
 section {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Espacio debajo de cada sección */
 }
 
 h2 {
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #333; /* Línea debajo del título */
+    padding-bottom: 0.5rem; /* Espaciado debajo del título */
     text-align: center; /* Centrar el título */
 }
 
 .servicio {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    text-align: center; /* Centrar el contenido del servicio */
+    background: #fff; /* Fondo blanco para los servicios */
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 1rem; /* Espacio interno */
+    margin-bottom: 1rem; /* Espacio debajo de cada servicio */
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-align: center; /* Centrar contenido del servicio */
+}
+
+.servicio-detalles {
+    max-height: 0; /* Altura máxima inicial oculta */
+    overflow: hidden; /* Oculta el contenido que desborda */
+    transition: max-height 0.4s ease; /* Transición para la altura */
+}
+
+.servicio-detalles p {
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+    margin-bottom: 0.4em; /* Espacio debajo de cada párrafo */
+}
+
+.servicio-detalles strong {
+    margin-bottom: 0.6em; /* Espacio opcional debajo del título del servicio */
 }
 
 .faq-item {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Espacio debajo de cada ítem FAQ */
 }
 
 .faq-question {
-    cursor: pointer;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
     background: #f0f0f0; /* Color de fondo de la pregunta */
     padding: 1rem; /* Espaciado interno */
     border: 1px solid #ddd; /* Borde gris claro */
@@ -90,53 +105,51 @@ h2 {
 }
 
 .faq-answer {
-    max-height: 0; /* Altura inicial */
+    max-height: 0; /* Altura inicial oculta */
     overflow: hidden; /* Oculta el contenido que desborda */
     transition: max-height 0.4s ease; /* Transición para la altura */
 }
 
-
-
 blockquote {
-    background: #fff;
-    border-left: 10px solid #333;
-    margin: 1rem 0;
-    padding: 1rem;
-    border-radius: 5px;
-    text-align: center; /* Centrar el contenido de los testimonios */
+    background: #fff; /* Fondo blanco para citas */
+    border-left: 10px solid #333; /* Borde izquierdo para destacar */
+    margin: 1rem 0; /* Margen arriba y abajo */
+    padding: 1rem; /* Espacio interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-align: center; /* Centrar contenido de los testimonios */
 }
 
 form {
-    background: #fff;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background: #fff; /* Fondo blanco para el formulario */
+    padding: 1rem; /* Espacio interno */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 5px; /* Esquinas redondeadas */
     text-align: center; /* Centrar el formulario */
 }
 
 form label {
-    display: block;
-    margin-bottom: 0.5rem;
+    display: block; /* Coloca cada etiqueta en una nueva línea */
+    margin-bottom: 0.5rem; /* Espacio debajo de la etiqueta */
     color: #000000; /* Negro para las etiquetas */
 }
 
 form input,
 form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    width: 100%; /* Ancho completo */
+    padding: 0.5rem; /* Espacio interno */
+    margin-bottom: 1rem; /* Espacio debajo de los campos */
     border: 1px solid #ddd; /* Bordes gris claro */
-    border-radius: 5px;
+    border-radius: 5px; /* Esquinas redondeadas */
 }
 
 form button {
     background: #FF0000; /* Rojo para el botón */
     color: #FFFFFF; /* Blanco para el texto del botón */
-    border: none;
+    border: none; /* Sin borde */
     padding: 0.75rem 1.5rem; /* Mayor relleno para más tamaño */
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem; /* Aumenta el tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    border-radius: 5px; /* Esquinas redondeadas */
+    font-size: 1rem; /* Tamaño de fuente */
     transition: background 0.3s ease, transform 0.2s ease; /* Transición suave */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para efecto tridimensional */
 }
@@ -149,21 +162,23 @@ form button:hover {
 footer {
     background: #000000; /* Negro para el pie de página */
     color: #FFFFFF; /* Blanco para el texto del pie de página */
-    text-align: center;
-    padding: 1rem 0;
+    text-align: center; /* Centrar texto en el pie de página */
+    padding: 1rem 0; /* Espaciado arriba y abajo */
 }
-contacto {
-    text-align: center;
+
+.contacto {
+    text-align: center; /* Centrar contenido de contacto */
 }
+
 .contact-icons {
-    display: flex;
+    display: flex; /* Flexbox para alinear los íconos */
     justify-content: center; /* Centrar los íconos de contacto */
-    margin-top: 1rem;
+    margin-top: 1rem; /* Espacio superior */
 }
 
 .contact-icon {
     width: 40px; /* Ajusta el tamaño según sea necesario */
-    height: auto;
+    height: auto; /* Mantiene la proporción */
     margin: 0 10px; /* Espaciado entre íconos */
 }
 
@@ -189,26 +204,63 @@ contacto {
 
 .modal {
     display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed; /* Posición fija */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    left: 0; /* Alineación izquierda */
+    top: 0; /* Alineación superior */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
+    background-color: #fff; /* Fondo blanco para el contenido del modal */
+    margin: 15% auto; /* Margen vertical del 15% y horizontal centrado */
+    padding: 20px; /* Espacio interno */
+    width: 80%; /* Ancho del contenido */
+    max-width: 400px; /* Ancho máximo */
+    text-align: center; /* Centrar texto en el modal */
 }
 
 button {
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
+    padding: 10px 20px; /* Espacio interno para botones */
+    margin: 10px; /* Espacio alrededor de los botones */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+.consultar-button {
+    display: inline-flex; /* Permite alinear el texto y el icono en línea */
+    align-items: center; /* Alinea verticalmente el contenido del botón */
+    background-color: #25D366; /* Color verde de WhatsApp */
+    color: white; /* Color del texto */
+    padding: 8px 15px; /* Espaciado alrededor del texto */
+    border-radius: 25px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.whatsapp-icon {
+    width: 35px; /* Ajusta el tamaño según lo necesites */
+    height: 35px; /* Mantiene la proporción */
+    margin-left: 5px; /* Espacio entre el texto y el icono */
+    vertical-align: middle; /* Alineación vertical con el texto */
+}
+
+.mapa {
+    display: none; /* Asegúrate de que este estilo no esté en conflicto */
+}
+
+/* Asegura que los contenedores de los mapas sean responsivos */
+.mapa {
+    width: 100%; /* El mapa ocupará todo el ancho disponible */
+    max-width: 500px; /* Puedes ajustar el máximo ancho para pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor del mapa */
+    text-align: center; /* Centra el contenido del mapa */
+}
+
+/* Establece el tamaño de la imagen del mapa */
+.mapa img {
+    width: 100%; /* La imagen se ajustará al ancho del contenedor */
+    height: 100; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Opcional, para darle bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Opcional, agrega sombra */
 }
