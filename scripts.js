@@ -151,4 +151,23 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    // Función para mostrar el mapa correspondiente
+function showMap(location) {
+    const mapaSgo = document.getElementById('mapaSgo');
+    const mapaJujuy = document.getElementById('mapaJujuy');
+    const textoLocalizacion = document.querySelector('.texto-localizacion');
+
+    // Muestra el mapa correspondiente según la ubicación
+    if (location === 'sgo') {
+        mapaSgo.style.display = 'block';
+        mapaJujuy.style.display = 'none';
+        textoLocalizacion.textContent = 'Santiago del Estero, Capital'; // Actualiza el texto
+    } else {
+        mapaSgo.style.display = 'none';
+        mapaJujuy.style.display = 'block';
+        textoLocalizacion.textContent = 'Palpalá, Jujuy'; // Actualiza el texto
+    }
+}
+
 });
