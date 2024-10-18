@@ -44,7 +44,7 @@ header {
 
 /* Pausa entre animaciones */
 .header-image img {
-    animation: spinGlow 8s ease-in-out 2s infinite; /* s de giro + s de pausa */
+    animation: spinGlow 5s ease-in-out 2s infinite; /* s de giro + s de pausa */
 }
 
 header h1 {
@@ -55,7 +55,7 @@ header h1 {
 .titulo-portada {
     position: absolute;
     top: 10px; /* Ajustar la posición vertical */
-    left: 50%;
+    left: 46%;
     transform: translateX(-50%);
     font-size: 1.25em; /* Tamaño de fuente ajustado */
     color: rgb(255, 255, 255); /* Color del texto */
@@ -79,7 +79,7 @@ header h1 {
     position: relative; /* Cambiar a relative */
     top: 20px; /* Ajusta el valor para que esté más arriba */
     margin-top: 10px; /* Añadir margen superior si es necesario */
-    left: 50%;
+    left: 46%;
     transform: translateX(-50%);
     font-size: 1em; /* Tamaño de fuente ajustado */
     color: rgb(255, 255, 255); /* Color del texto */
