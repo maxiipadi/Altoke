@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Selección de Santiago del Estero
     sgoButton.addEventListener('click', function() {
-        console.log("Santiago del Estero seleccionado");
+        console.log("Santiago del Estero seleccionado"); // Debugging
         modal.style.display = 'none';
         togglePrices('sgo');
         updateContactLinks('sgo');
@@ -73,8 +73,14 @@ document.addEventListener("DOMContentLoaded", function() {
         mostrarImagenes('sgo'); // Asegúrate de llamar a mostrarImagenes aquí
     });
 
+    function togglePrices(location) {
+        // Aquí puedes implementar la lógica para mostrar u ocultar precios
+        console.log("Toggle precios para: " + location);
+        // Implementa la lógica necesaria aquí
+    }
+    
     jujuyButton.addEventListener('click', function() {
-        console.log("Jujuy seleccionado");
+        console.log("Jujuy seleccionado"); // Debugging
         modal.style.display = 'none';
         togglePrices('jujuy');
         updateContactLinks('jujuy');
@@ -83,13 +89,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     catrielButton.addEventListener('click', function() {
-        console.log("Catriel seleccionado");
+        console.log("Catriel seleccionado"); // Debugging
         modal.style.display = 'none';
         togglePrices('catriel');
         updateContactLinks('catriel');
         sendLocationToGoogleApps('Catriel');
         showMap('catriel');
     });
+    
 
     // Función para mostrar el mapa correspondiente
     function showMap(location) {
@@ -155,7 +162,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Error al enviar la ubicación:", error); // Manejar errores
         });
     }
-
     // Lógica para el acordeón de servicios
     document.querySelectorAll('.servicio-titulo').forEach(titulo => {
         titulo.addEventListener('click', () => {
@@ -169,4 +175,25 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    // Función para mostrar el mapa correspondiente
+function showMap(location) {
+    const mapaSgo = document.getElementById('mapaSgo');
+    const mapaJujuy = document.getElementById('mapaJujuy');
+    const textoLocalizacion = document.querySelector('.texto-localizacion');
+
+    // Muestra el mapa correspondiente según la ubicación
+    if (location === 'sgo') {
+        mapaSgo.style.display = 'block';
+        mapaJujuy.style.display = 'none';
+        textoLocalizacion.textContent = 'Santiago del Estero, Capital'; // Actualiza el texto
+    } else {
+        mapaSgo.style.display = 'none';
+        mapaJujuy.style.display = 'block';
+        textoLocalizacion.textContent = 'Palpalá, Jujuy'; // Actualiza el texto
+    }
+}
+
+
+
 });
