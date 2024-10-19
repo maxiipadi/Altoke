@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             behavior: "smooth" // Desplazamiento suave
         });
     });
-    
+
     // Lógica para mostrar la ubicación
     const modal = document.getElementById('locationModal');
     const sgoButton = document.getElementById('sgoButton');
@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
         sendLocationToGoogleApps('Catriel');
         showMap('catriel');
     });
-    
 
     // Función para mostrar el mapa correspondiente
     function showMap(location) {
@@ -156,6 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Error al enviar la ubicación:", error); // Manejar errores
         });
     }
+
     // Lógica para el acordeón de servicios
     document.querySelectorAll('.servicio-titulo').forEach(titulo => {
         titulo.addEventListener('click', () => {
@@ -169,25 +169,4 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-
-    // Función para mostrar el mapa correspondiente
-function showMap(location) {
-    const mapaSgo = document.getElementById('mapaSgo');
-    const mapaJujuy = document.getElementById('mapaJujuy');
-    const textoLocalizacion = document.querySelector('.texto-localizacion');
-
-    // Muestra el mapa correspondiente según la ubicación
-    if (location === 'sgo') {
-        mapaSgo.style.display = 'block';
-        mapaJujuy.style.display = 'none';
-        textoLocalizacion.textContent = 'Santiago del Estero, Capital'; // Actualiza el texto
-    } else {
-        mapaSgo.style.display = 'none';
-        mapaJujuy.style.display = 'block';
-        textoLocalizacion.textContent = 'Palpalá, Jujuy'; // Actualiza el texto
-    }
-}
-
-
-
 });
