@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateContactLinks('sgo');
         sendLocationToGoogleApps('Santiago del Estero');
         showMap('sgo');
+        mostrarImagenes('sgo'); // Asegúrate de llamar a mostrarImagenes aquí
     });
 
     function togglePrices(location) {
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateContactLinks('jujuy');
         sendLocationToGoogleApps('Jujuy');
         showMap('jujuy');
+        mostrarImagenes('jujuy'); // Asegúrate de llamar a mostrarImagenes aquí
     });
     
 
@@ -169,5 +171,7 @@ function showMap(location) {
         textoLocalizacion.textContent = 'Palpalá, Jujuy'; // Actualiza el texto
     }
 }
+
+
 
 });
