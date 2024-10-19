@@ -55,7 +55,7 @@ header h1 {
 .titulo-portada {
     position: absolute;
     top: 10px; /* Ajustar la posición vertical */
-    left: 46%;
+    left: 48%;
     transform: translateX(-50%);
     font-size: 1.25em; /* Tamaño de fuente ajustado */
     color: rgb(255, 255, 255); /* Color del texto */
@@ -406,17 +406,17 @@ button {
 
 .modal-content h2 {
     font-size: 1.5rem;
-    color: #cc0000; /* Subtítulo en un rojo más suave */
+    color: #ce2222; /* Subtítulo en un rojo más suave */
     margin-bottom: 2rem;
 }
 
 /* Estilo para los botones */
 .modal-content button {
-    background-color: #cc0000; /* Rojo menos intenso */
+    background-color: #da3131; /* Rojo menos intenso */
     color: #fff; /* Texto en blanco */
     border: none;
     padding: 1rem 2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 50px; /* Botones redondeados */
     cursor: pointer;
     transition: background-color 0.3s ease;
