@@ -386,60 +386,50 @@ button {
     }
 }
 
-.modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
-}
-
+/* Estilo para el modal */
 .modal-content {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff; /* Fondo blanco */
+    color: #000; /* Texto en negro */
+    border: 2px solid #000; /* Borde negro */
+    padding: 2rem;
+    border-radius: 10px; /* Esquinas redondeadas del modal */
     text-align: center;
-    max-width: 400px;
-    width: 90%;
-    animation: modalFadeIn 0.5s ease; /* Animación de entrada suave */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
 }
 
+/* Títulos del modal */
 .modal-content h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2rem;
+    color: #000; /* Título principal en negro */
+    margin-bottom: 1rem;
 }
 
 .modal-content h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: #cc0000; /* Subtítulo en un rojo más suave */
+    margin-bottom: 2rem;
 }
 
+/* Estilo para los botones */
 .modal-content button {
-    background-color: #d62323;
-    color: white;
+    background-color: #cc0000; /* Rojo menos intenso */
+    color: #fff; /* Texto en blanco */
     border: none;
-    padding: 15px 25px;
-    margin: 10px;
-    border-radius: 30px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px; /* Botones redondeados */
     cursor: pointer;
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
     transition: background-color 0.3s ease;
+    margin: 0.5rem;
 }
 
+/* Efecto hover para los botones */
 .modal-content button:hover {
-    background-color: #ff0000; /* Cambia el color al pasar el cursor */
+    background-color: #000; /* Fondo negro al pasar el ratón */
+    color: #fff; /* Texto en blanco */
 }
+
+
 
 /* Animación para que aparezca suavemente */
 @keyframes modalFadeIn {
