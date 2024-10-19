@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
         updateContactLinks('jujuy');
         sendLocationToGoogleApps('Jujuy');
         showMap('jujuy');
-        mostrarImagenes('jujuy'); // Asegúrate de llamar a mostrarImagenes aquí
     });
     
 
