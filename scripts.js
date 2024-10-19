@@ -52,18 +52,19 @@ document.addEventListener("DOMContentLoaded", function() {
             behavior: "smooth" // Desplazamiento suave
         });
     });
-
+    
     // Lógica para mostrar la ubicación
     const modal = document.getElementById('locationModal');
     const sgoButton = document.getElementById('sgoButton');
     const jujuyButton = document.getElementById('jujuyButton');
+    const catrielButton = document.getElementById('catrielButton');
 
     // Mostrar el modal al cargar la página
     modal.style.display = 'block';
 
     // Selección de Santiago del Estero
     sgoButton.addEventListener('click', function() {
-        console.log("Santiago del Estero seleccionado"); // Debugging
+        console.log("Santiago del Estero seleccionado");
         modal.style.display = 'none';
         togglePrices('sgo');
         updateContactLinks('sgo');
@@ -72,19 +73,22 @@ document.addEventListener("DOMContentLoaded", function() {
         mostrarImagenes('sgo'); // Asegúrate de llamar a mostrarImagenes aquí
     });
 
-    function togglePrices(location) {
-        // Aquí puedes implementar la lógica para mostrar u ocultar precios
-        console.log("Toggle precios para: " + location);
-        // Implementa la lógica necesaria aquí
-    }
-    
     jujuyButton.addEventListener('click', function() {
-        console.log("Jujuy seleccionado"); // Debugging
+        console.log("Jujuy seleccionado");
         modal.style.display = 'none';
         togglePrices('jujuy');
         updateContactLinks('jujuy');
         sendLocationToGoogleApps('Jujuy');
         showMap('jujuy');
+    });
+
+    catrielButton.addEventListener('click', function() {
+        console.log("Catriel seleccionado");
+        modal.style.display = 'none';
+        togglePrices('catriel');
+        updateContactLinks('catriel');
+        sendLocationToGoogleApps('Catriel');
+        showMap('catriel');
     });
     
 
@@ -92,14 +96,21 @@ document.addEventListener("DOMContentLoaded", function() {
     function showMap(location) {
         const mapaSgo = document.getElementById('mapaSgo');
         const mapaJujuy = document.getElementById('mapaJujuy');
+        const textoLocalizacion = document.querySelector('.texto-localizacion');
 
         // Muestra el mapa correspondiente según la ubicación
         if (location === 'sgo') {
             mapaSgo.style.display = 'block';
             mapaJujuy.style.display = 'none';
-        } else {
+            textoLocalizacion.textContent = 'Santiago del Estero, Capital'; // Actualiza el texto
+        } else if (location === 'jujuy') {
             mapaSgo.style.display = 'none';
             mapaJujuy.style.display = 'block';
+            textoLocalizacion.textContent = 'Palpalá, Jujuy'; // Actualiza el texto
+        } else if (location === 'catriel') {
+            mapaSgo.style.display = 'none';
+            mapaJujuy.style.display = 'none'; // Si hay mapa específico para Catriel, ajústalo aquí
+            textoLocalizacion.textContent = 'Catriel, Río Negro'; // Actualiza el texto
         }
     }
 
@@ -110,9 +121,16 @@ document.addEventListener("DOMContentLoaded", function() {
         links.forEach(link => {
             const sgoUrl = link.getAttribute('data-sgo');
             const jujuyUrl = link.getAttribute('data-jujuy');
+            const catrielUrl = link.getAttribute('data-catriel');
 
             // Cambia el href según la ubicación
-            link.href = location === 'sgo' ? sgoUrl : jujuyUrl;
+            if (location === 'sgo') {
+                link.href = sgoUrl;
+            } else if (location === 'jujuy') {
+                link.href = jujuyUrl;
+            } else if (location === 'catriel') {
+                link.href = catrielUrl;
+            }
         });
     }
 
@@ -138,7 +156,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Error al enviar la ubicación:", error); // Manejar errores
         });
     }
-
     // Lógica para el acordeón de servicios
     document.querySelectorAll('.servicio-titulo').forEach(titulo => {
         titulo.addEventListener('click', () => {
