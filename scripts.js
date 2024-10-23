@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const modal = document.getElementById('locationModal');
     const sgoButton = document.getElementById('sgoButton');
     const jujuyButton = document.getElementById('jujuyButton');
-    const catrielButton = document.getElementById('catrielButton');
 
     // Mostrar el modal al cargar la página
     modal.style.display = 'block';
@@ -86,15 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateContactLinks('jujuy');
         sendLocationToGoogleApps('Jujuy');
         showMap('jujuy');
-    });
-
-    catrielButton.addEventListener('click', function() {
-        console.log("Catriel seleccionado"); // Debugging
-        modal.style.display = 'none';
-        togglePrices('catriel');
-        updateContactLinks('catriel');
-        sendLocationToGoogleApps('Catriel');
-        showMap('catriel');
+        mostrarImagenes('jujuy'); // Asegúrate de llamar a mostrarImagenes aquí
     });
     
 
@@ -102,21 +93,14 @@ document.addEventListener("DOMContentLoaded", function() {
     function showMap(location) {
         const mapaSgo = document.getElementById('mapaSgo');
         const mapaJujuy = document.getElementById('mapaJujuy');
-        const textoLocalizacion = document.querySelector('.texto-localizacion');
 
         // Muestra el mapa correspondiente según la ubicación
         if (location === 'sgo') {
             mapaSgo.style.display = 'block';
             mapaJujuy.style.display = 'none';
-            textoLocalizacion.textContent = 'Santiago del Estero, Capital'; // Actualiza el texto
-        } else if (location === 'jujuy') {
+        } else {
             mapaSgo.style.display = 'none';
             mapaJujuy.style.display = 'block';
-            textoLocalizacion.textContent = 'Palpalá, Jujuy'; // Actualiza el texto
-        } else if (location === 'catriel') {
-            mapaSgo.style.display = 'none';
-            mapaJujuy.style.display = 'none'; // Si hay mapa específico para Catriel, ajústalo aquí
-            textoLocalizacion.textContent = 'Catriel, Río Negro'; // Actualiza el texto
         }
     }
 
@@ -127,16 +111,9 @@ document.addEventListener("DOMContentLoaded", function() {
         links.forEach(link => {
             const sgoUrl = link.getAttribute('data-sgo');
             const jujuyUrl = link.getAttribute('data-jujuy');
-            const catrielUrl = link.getAttribute('data-catriel');
 
             // Cambia el href según la ubicación
-            if (location === 'sgo') {
-                link.href = sgoUrl;
-            } else if (location === 'jujuy') {
-                link.href = jujuyUrl;
-            } else if (location === 'catriel') {
-                link.href = catrielUrl;
-            }
+            link.href = location === 'sgo' ? sgoUrl : jujuyUrl;
         });
     }
 
@@ -162,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Error al enviar la ubicación:", error); // Manejar errores
         });
     }
+
     // Lógica para el acordeón de servicios
     document.querySelectorAll('.servicio-titulo').forEach(titulo => {
         titulo.addEventListener('click', () => {
@@ -194,6 +172,49 @@ function showMap(location) {
     }
 }
 
+let indiceActual = 0;
+
+function mostrarImagenes(location) {
+    const imagenes = document.querySelectorAll('.imagen');
+    imagenes.forEach(img => {
+        img.classList.remove('active'); // Elimina la clase activa de todas las imágenes
+        if (img.getAttribute('data-location') === location) {
+            img.classList.add('active'); // Añade la clase activa solo a las que coinciden
+        }
+    });
+    
+    // Reinicia el índice y muestra la primera imagen activa
+    indiceActual = 0;
+    mostrarImagen(indiceActual);
+}
+
+function mostrarImagen(indice) {
+    const imagenes = document.querySelectorAll('.imagen.active');
+    const totalImagenes = imagenes.length;
+
+    if (totalImagenes === 0) return; // Si no hay imágenes que mostrar
+
+    // Oculta todas las imágenes
+    imagenes.forEach((img, index) => {
+        img.style.display = index === indice ? 'block' : 'none'; // Solo muestra la imagen en el índice actual
+    });
+}
+
+
+function cambiarImagen(direccion) {
+    console.log("cambiarImagen llamada con dirección:", direccion); // Debugging
+    const imagenes = document.querySelectorAll('.imagen.active');
+    if (imagenes.length === 0) return;
+
+    indiceActual = (indiceActual + direccion + imagenes.length) % imagenes.length;
+    mostrarImagen(indiceActual);
+}
+
+
+// Inicializa el carrusel con la ubicación predeterminada
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarImagenes('sgo'); // Cambia a 'jujuy' si necesitas que sea el predeterminado
+});
 
 
 });
