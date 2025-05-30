@@ -1,4 +1,9 @@
 /* Estilos generales */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif; /* Fuente general de la página */
     line-height: 1.6; /* Espaciado de línea para mejor legibilidad */
@@ -9,7 +14,7 @@ body {
 
 header {
     background: #000000; /* Negro para el encabezado */
-    color: #FF0000; /* Rojo para el texto del encabezado */
+    color: #CC0000; /* Rojo para el texto del encabezado */
     padding: 1rem 0; /* Espaciado superior e inferior */
     text-align: center; /* Centrar texto en el encabezado */
 }
@@ -34,7 +39,7 @@ header {
     }
     50% {
         transform: rotateY(360deg);
-        filter: brightness(1.5); /* Aumenta el brillo */
+        filter: brightness(1.2); /* Aumenta el brillo */
     }
     100% {
         transform: rotateY(360deg);
@@ -45,6 +50,8 @@ header {
 /* Pausa entre animaciones */
 .header-image img {
     animation: spinGlow 5s ease-in-out 2s infinite; /* s de giro + s de pausa */
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
 }
 
 header h1 {
@@ -101,6 +108,9 @@ nav ul {
     padding: 0; /* Elimina padding por defecto */
     margin-top: 45px;
     margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     
 }
 
@@ -110,16 +120,22 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #FF0000; /* Rojo para los enlaces */
+    color: #CC0000; /* Rojo para los enlaces */
     text-decoration: none; /* Sin subrayado */
     padding: 10px 15px; /* Relleno para el estilo de botón */
-    border: 2px solid #FF0000; /* Borde rojo */
+    border: 2px solid #CC0000; /* Borde rojo */
     border-radius: 5px; /* Esquinas redondeadas */
     transition: background 0.3s ease, color 0.3s ease; /* Transición suave para el fondo y color del texto */
 }
 
+nav ul li a:focus {
+    outline: 2px dashed #CC0000;
+    background: #CC0000;
+    color: #fff;
+}
+
 nav ul li a:hover {
-    background: #FF0000; /* Fondo rojo al pasar el cursor */
+    background: #CC0000; /* Fondo rojo al pasar el cursor */
     color: #FFFFFF; /* Texto blanco al pasar el cursor */
 }
 
@@ -144,7 +160,7 @@ h2 {
     margin-bottom: 1rem; /* Espacio debajo de cada servicio */
     border-radius: 10px; /* Esquinas más redondeadas */
     text-align: center; /* Centrar contenido del servicio */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.2); /* Sombra suave */
     transition: transform 0.2s, box-shadow 0.2s; /* Efecto de transición suave */
 }
 
@@ -159,6 +175,14 @@ h2 {
     .servicio {
         padding: 0.5rem; /* Reducir el padding en pantallas pequeñas */
     }
+    .titulo-portada, .titulo-inferior {
+        font-size: 1em;
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
 }
 
 
@@ -166,7 +190,11 @@ h2 {
 .servicio-detalles {
     max-height: 0; /* Altura máxima inicial oculta */
     overflow: hidden; /* Oculta el contenido que desborda */
-    transition: max-height 0.4s ease; /* Transición para la altura */
+    transition: max-height 0.3s ease; /* Transición para la altura */
+}
+
+.servicio-detalles.activo {
+    max-height: 1000px; /* suficientemente grande para contener todo el contenido */
 }
 
 .servicio-detalles p {
@@ -185,7 +213,7 @@ h2 {
 
 .faq-question {
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    background: #f0f0f0; /* Color de fondo de la pregunta */
+    background: #eaeaea; /* Color de fondo de la pregunta */
     padding: 1rem; /* Espaciado interno */
     border: 1px solid #ddd; /* Borde gris claro */
     border-radius: 5px; /* Bordes redondeados */
@@ -194,7 +222,7 @@ h2 {
 .faq-answer {
     max-height: 0; /* Altura inicial oculta */
     overflow: hidden; /* Oculta el contenido que desborda */
-    transition: max-height 0.4s ease; /* Transición para la altura */
+    transition: max-height 0.3s ease; /* Transición para la altura */
 }
 
 blockquote {
@@ -204,6 +232,8 @@ blockquote {
     padding: 1rem; /* Espacio interno */
     border-radius: 5px; /* Esquinas redondeadas */
     text-align: center; /* Centrar contenido de los testimonios */
+    font-style: italic;
+    color: #555;
 }
 
 form {
@@ -230,7 +260,7 @@ form textarea {
 }
 
 form button {
-    background: #FF0000; /* Rojo para el botón */
+    background: #CC0000; /* Rojo para el botón */
     color: #FFFFFF; /* Blanco para el texto del botón */
     border: none; /* Sin borde */
     padding: 0.75rem 1.5rem; /* Mayor relleno para más tamaño */
@@ -273,7 +303,7 @@ footer {
     position: fixed; /* Posición fija */
     bottom: 20px; /* Distancia desde el fondo */
     right: 20px; /* Distancia desde la derecha */
-    background-color: #FF0000; /* Fondo rojo */
+    background-color: #CC0000; /* Fondo rojo */
     color: white; /* Texto blanco */
     border: none; /* Sin borde */
     border-radius: 5px; /* Esquinas redondeadas */
