@@ -209,6 +209,36 @@ h2 {
     /* Centrar el título */
 }
 
+.titulo-servicios {
+    text-align: center;
+    display: inline-block;
+    margin: 20px auto;
+    margin-top:1px; 
+    padding: 20px 30px;
+    border: 2px solid #CC0000;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #CC0000, #6610f2);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Centrar el bloque */
+.titulo-servicios-container {
+    text-align: center;
+}
+
+/* Animación al hacer hover */
+.titulo-servicios:hover {
+    background: linear-gradient(135deg, #6610f2, #d63384);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+
 .servicio {
     background: #fff;
     /* Fondo blanco para los servicios */
@@ -667,3 +697,4 @@ button {
         transform: translateY(0);
     }
 }
+
