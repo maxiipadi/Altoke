@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Altoke Servicio Técnico - Reparación de celulares, computadoras, desbloqueo de netbooks y mantenimiento en Santiago del Estero. ¡Tu taller de confianza!">
+    <meta name="keywords"
+        content="reparación de celulares, desbloqueo netbooks, mantenimiento PC, Altoke, servicio técnico, Santiago del Estero">
+    <meta name="author" content="Altoke Servicio Técnico">
+
+    <title>Altoke Servicio Técnico - Reparación de computadoras y celulares</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/tienda.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/tienda.js"></script>
+    <script src="/static/js/login.js"></script>
+</head>
+
+<body>
+
+    <!-- Mensaje de "En construcción" para escritorio -->
+    <div id="desktop-message">
+        <h1>En construcción</h1>
+        <p>Este sitio solo está disponible en dispositivos móviles.</p>
+    </div>
+
+    <!-- Contenido para móviles -->
+    <div id="mobile-content">
+
+        <header>
+            <h1 class="titulo-portada">Tu Taller de Confianza</h1>
+            <div class="header-image">
+                <img src="/static/img/splash4-rem.png" alt="Altoke Servicio Técnico" class="rotating-image">
+            </div>
+            <div id="nav-tienda"></div>
+        </header>
+        <main class="login-container">
+            <h1>Iniciar Sesión</h1>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+            <p id="error-msg" style="color: red;"></p>
+
+            <div id="adminPanel" class="panel oculto">
+                <h2>Panel de Administrador</h2>
+                <form id="productForm">
+                    <input type="text" id="productName" placeholder="Nombre del producto" required>
+                    <input type="number" id="productPrice" placeholder="Precio" required>
+                    <button type="submit">Agregar Producto</button>
+                </form>
+            </div>
+
+            <div id="userPanel" class="panel oculto">
+                <h2>Bienvenido/a</h2>
+                <p>Podés ver productos y realizar compras desde acá.</p>
+            </div>
+
+
+            <button id="scrollToTop" title="Volver arriba" style="display: none;">⬆️</button>
+
+        </main>
+        
+        <div id="footer-component"></div>
+        <script src="/static/js/components.js"></script>
+</body>
+
+</html>

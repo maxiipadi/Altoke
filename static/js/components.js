@@ -22,3 +22,10 @@ fetch('/src/views/pages/public/components/header.html')
         document.getElementById('navbar').innerHTML = data;
     })
     .catch(error => console.error('Error al cargar navbar: ', error));
+
+fetch('/src/views/pages/public/components/nav-tienda.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('nav-tienda').innerHTML = data;
+    })
+    .catch(error => console.error('Error al cargar navbar: ', error));
