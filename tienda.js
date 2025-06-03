@@ -48,43 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
         total.textContent = suma.toFixed(2);
     }
 
-    function iniciarSesionComo(location) {
-        modal.style.display = "none";
-        currentUser = location;
-
-        if (location === "sgo") {
-            adminPanel.classList.remove("oculto");
-        }
-
-        renderCatalogo(location);
-
-        productForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const nombre = document.getElementById("productName").value;
-            const precio = parseFloat(document.getElementById("productPrice").value);
-            productos[location].push({ nombre, precio });
-            productForm.reset();
-            renderCatalogo(location);
-        });
-    }
-
-    sgoBtn.addEventListener("click", () => iniciarSesionComo("sgo"));
-    jujuyBtn.addEventListener("click", () => iniciarSesionComo("jujuy"));
-
     const rol = localStorage.getItem("rol");
+    const loginBtn = document.getElementById("loginBtn");
 
+    // Mostrar el botón siempre
+    loginBtn.style.display = "block";
+
+    loginBtn.addEventListener("click", () => {
+        window.location.href = "/login.html";
+    });
+
+    // Si está logueado, mostrar panel según rol
     if (rol === "admin") {
-        document.getElementById("adminPanel").classList.remove("oculto");
+        document.getElementById("adminPanel")?.classList.remove("oculto");
+        loginBtn.style.display = "none"; // Ocultar botón si ya está logueado
     }
 
     if (rol === "usuario") {
-        // Podés mostrar un panel de compras acá si querés
-        console.log("Modo usuario cargado.");
+        document.getElementById("userPanel")?.classList.remove("oculto");
+        loginBtn.style.display = "none"; // Ocultar botón si ya está logueado
     }
 
-    if (!rol) {
-        // Si no hay sesión, redirigir al login
-        window.location.href = "/src/views/pages/public/auth/login.html"
-    }
-    
 });

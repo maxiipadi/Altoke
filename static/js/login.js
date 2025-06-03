@@ -12,19 +12,13 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         { user: "cliente", pass: "4321", rol: "usuario" }
     ];
 
-    const encontrado = usuarios.find(u => u.user === user && u.pass === pass);
+const logoutBtn = document.getElementById("logoutBtn");
 
-    if (encontrado) {
-        // Guardar rol y redirigir
-        localStorage.setItem("rol", encontrado.rol);
-        window.location.href = "/src/views/pages/public/tienda.html";
-    } else {
-        errorMsg.textContent = "Usuario o contraseña incorrectos.";
-    }
-    function logout() {
+if (rol) {
+    logoutBtn.classList.remove("oculto");
+    logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("rol");
-        window.location.href = "/src/views/pages/public/auth/login.html";
-    }
-    
-    
+        location.reload(); // Recargar la página para volver al estado sin login
+    });
+}
 });
