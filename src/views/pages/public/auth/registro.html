@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Altoke Servicio Técnico - Reparación de celulares, computadoras, desbloqueo de netbooks y mantenimiento en Santiago del Estero. ¡Tu taller de confianza!">
+    <meta name="keywords"
+        content="reparación de celulares, desbloqueo netbooks, mantenimiento PC, Altoke, servicio técnico, Santiago del Estero">
+    <meta name="author" content="Altoke Servicio Técnico">
+
+    <title>Altoke Servicio Técnico - Reparación de computadoras y celulares</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/tienda.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    <link rel="stylesheet" href="/static/css/registro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/registro.js"></script>
+</head>
+
+<body>
+
+    <!-- Mensaje de "En construcción" para escritorio -->
+    <div id="desktop-message">
+        <h1>En construcción</h1>
+        <p>Este sitio solo está disponible en dispositivos móviles.</p>
+    </div>
+
+    <!-- Contenido para móviles -->
+    <div id="mobile-content">
+
+        <header>
+            <h1 class="titulo-portada">Tu Taller de Confianza</h1>
+            <div class="header-image">
+                <img src="/static/img/splash4-rem.png" alt="Altoke Servicio Técnico" class="rotating-image">
+            </div>
+            <div id="nav-tienda"></div>
+        </header>
+    
+<main>
+    <section class="registro-wizard">
+    <div class="wizard-pasos">
+        <div class="paso activo">
+            <div class="circulo">1</div>
+            <p><strong>Creá tu cuenta</strong></p>
+        </div>
+        <div class="linea"></div>
+        <div class="paso">
+            <div class="circulo">2</div>
+            <p>Intereses</p>
+        </div>
+    </div>
+</section>
+
+<section id="paso1" class="formulario-paso1 active">
+    <h2>Creá tu cuenta</h2>
+    <form id="registroForm">
+
+        <div class="input-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="input-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" required>
+        </div>
+
+        <div class="input-group">
+            <label for="fechaNacimiento">Fecha de nacimiento</label>
+            <input type="text" id="fechaNacimiento" name="fechaNacimiento" placeholder="dd/mm/yyyy" maxlength="10" required>
+        </div>
+
+        <div class="input-group">
+            <label for="genero">Género</label>
+            <select id="genero" name="genero" required>
+                <option value="" disabled selected>Seleccioná una opción</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+<div class="input-group">
+    <label for="pais">País</label>
+    <select id="pais" name="pais" required>
+        <option value="" disabled selected>Seleccioná un país</option>
+        <option value="Argentina">Argentina</option>
+        <!-- Podés agregar más países si lo necesitás -->
+    </select>
+</div>
+
+<div class="input-group">
+    <label for="provincia">Provincia</label>
+    <select id="provincia" name="provincia" required disabled>
+        <option value="" disabled selected>Seleccioná una provincia</option>
+    </select>
+</div>
+
+<div class="input-group">
+    <label for="municipio">Municipio/Departamento</label>
+    <select id="municipio" name="municipio" required disabled>
+        <option value="" disabled selected>Seleccioná un municipio</option>
+    </select>
+</div>
+
+
+
+        <div class="input-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="input-group">
+            <label for="confirmarEmail">Confirmar correo electrónico</label>
+            <input type="email" id="confirmarEmail" name="confirmarEmail" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="input-group">
+            <label for="confirmarPassword">Confirmar contraseña</label>
+            <input type="password" id="confirmarPassword" name="confirmarPassword" required>
+        </div>
+
+<div class="checkbox-group">
+  <input type="checkbox" id="terminos" required>
+  <label for="terminos">
+    Acepto los <a href="#">términos y condiciones</a>
+  </label>
+</div>
+
+
+        <button type="submit" class="btn-principal">Registrarme</button>
+
+        <p class="login-link">¿Ya tenés una cuenta? <a href="#">Ingresá</a></p>
+
+    </form>
+</section>
+
+<section id="paso2" class="formulario-paso2">
+    <h2>Preferencias de compra</h2>
+    <p>¿Qué tipo de productos te interesan? Seleccioná una o más categorías para que podamos ofrecerte promociones y novedades personalizadas desde Altoke Servicio Técnico.</p>
+
+<form id="interesesForm">
+  <div class="checkbox-grid">
+    <div>
+      <label><input type="checkbox" name="intereses" value="Accesorios"> Accesorios para celular</label>
+      <label><input type="checkbox" name="intereses" value="Componentes"> Componentes de PC</label>
+      <label><input type="checkbox" name="intereses" value="Herramientas"> Herramientas técnicas</label>
+      <label><input type="checkbox" name="intereses" value="Conectividad"> Redes y conectividad</label>
+    </div>
+    <div>
+      <label><input type="checkbox" name="intereses" value="Gaming"> Periféricos Gamer</label>
+      <label><input type="checkbox" name="intereses" value="Software"> Licencias de Software</label>
+      <label><input type="checkbox" name="intereses" value="Monitores"> Monitores y pantallas</label>
+      <label><input type="checkbox" name="intereses" value="Reparaciones"> Servicios de reparación</label>
+    </div>
+  </div>
+
+        <button type="submit" class="btn-principal">Finalizar Registro</button>
+
+    </form>
+</section>
+
+
+        <div id="footer-component"></div>
+        <script src="/static/js/components.js"></script>
+        
+    </main>
+    </body>
+
+</html>
