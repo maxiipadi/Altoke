@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Carga dinámica del header
-fetch('/src/views/pages/public/components/header.html')
+fetch('/src/views/pages/public/components/nav.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar').innerHTML = data;

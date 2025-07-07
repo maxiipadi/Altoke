@@ -1,56 +1,157 @@
-/* Estilos generales */
+/* ==================================================
+    MAIN.CSS - ALTEN SERVICE TÉCNICO v3.0 (User-Defined Theme)
+    ================================================== */
 
+/* 0. VARIABLES DE TEMA
+-------------------------------------------------- */
+:root {
+    /* TEMA CLARO (Definido por tu hoja de estilos) */
+    --bg-gradient: linear-gradient(135deg, #FFFFFF, #f8f9fa);
+    /* Fondo blanco con un toque muy sutil */
+    --text-color: #333333;
+    --text-color-subtle: #555555;
+    --text-color-strong: #000000;
+
+    /* Header oscuro como especificaste */
+    --header-bg-gradient: linear-gradient(135deg, #800000 0%, #1a1a1a 60%, #000000 100%);
+
+    --primary-color: #CC0000;
+    /* Rojo principal */
+    --primary-color-hover: #D40000;
+
+    /* Tarjetas de servicio blancas como especificaste */
+    --card-bg: #ffffff;
+    --card-border: 1px solid #ccc;
+    --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    /* Títulos de sección como especificaste */
+    --h2-border-color: #333333;
+    --h2-color: #333333;
+
+    /* Footer oscuro como especificaste */
+    --footer-bg: #000000;
+
+    --desktop-bg: #f0f0f0;
+    --desktop-text: #000000;
+}
+
+body.dark-mode {
+    /* TEMA OSCURO (Opcional - Estilo "Glassmorphism") */
+    --bg-gradient: linear-gradient(135deg, #2c0b0b 0%, #1a1a1a 50%, #000000 100%);
+    --text-color: #f0f0f0;
+    --text-color-subtle: #ccc;
+    --text-color-strong: #ffffff;
+    --header-bg-gradient: linear-gradient(135deg, #800000 0%, #1a1a1a 60%, #000000 100%);
+    --primary-color: #CC0000;
+    --primary-color-hover: #D40000;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: 1px solid rgba(255, 255, 255, 0.18);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --card-hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    --h2-border-color: #CC0000;
+    --h2-color: #ffffff;
+    --footer-bg: #000000;
+    --desktop-bg: #1a1a1a;
+    --desktop-text: #f0f0f0;
+}
+
+
+/* 1. ESTRUCTURA Y STICKY FOOTER
+-------------------------------------------------- */
 html {
+    height: 100%;
     scroll-behavior: smooth;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Asegurate que el main crezca para empujar el footer hacia abajo */
-  main {
-    flex: 1;
-  }
-
 body {
-    min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
-    /* Fuente general de la página */
-    line-height: 1.6;
-    /* Espaciado de línea para mejor legibilidad */
+    min-height: 100%;
     margin: 0;
-    /* Elimina márgenes por defecto */
     padding: 0;
-    /* Elimina padding por defecto */
-    background-color: #FFFFFF;
-    /* Blanco como fondo */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
+
+/* 2. HEADER Y NAVEGACIÓN
+-------------------------------------------------- */
 header {
-    background: linear-gradient(135deg, #800000 0%, #1a1a1a 60%, #000000 100%);
-    /* Negro para el encabezado */
-    color: #CC0000;
-    /* Rojo para el texto del encabezado */
-    padding: 1rem 0;
-    /* Espaciado superior e inferior */
-    text-align: center;
-    /* Centrar texto en el encabezado */
+    background: var(--header-bg-gradient);
+    padding: 1rem 0 1.5rem 0; /* Un poco de espacio abajo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;    /* Centra los elementos horizontalmente */
+}
+
+.theme-switcher-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1001;
+}
+
+/* Busca esto en tu main.css */
+
+#theme-switcher {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-mode #theme-switcher {
+    color: #FFD700;
+    border-color: #FFD700;
+}
+
+#theme-switcher:hover {
+    transform: scale(1.1);
+}
+
+@keyframes spin-and-morph {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: rotate(180deg) scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Esta es la clase que aplicaremos con JavaScript para activar la animación */
+#theme-switcher .is-changing {
+    animation: spin-and-morph 0.6s ease-in-out;
 }
 
 .header-image {
     top: 30px;
     text-align: center;
-    /* Centra la imagen */
     margin-bottom: 1rem;
-    /* Espacio debajo de la imagen */
 }
 
-/* Keyframes para el giro con pausa */
 @keyframes spinGlow {
     0% {
         transform: rotateY(0deg);
@@ -60,7 +161,6 @@ header {
     50% {
         transform: rotateY(360deg);
         filter: brightness(1.2);
-        /* Aumenta el brillo */
     }
 
     100% {
@@ -69,567 +169,333 @@ header {
     }
 }
 
-/* Pausa entre animaciones */
 .header-image img {
     max-width: 75%;
-    /* Asegura que la imagen no exceda el ancho del contenedor */
     height: auto;
-    /* Mantiene la proporción de la imagen */
     border-radius: 5px;
-    /* Esquinas redondeadas */
     animation: spinGlow 5s ease-in-out 2s infinite;
-    /* s de giro + s de pausa */
     backface-visibility: hidden;
     transform-style: preserve-3d;
 }
 
 header h1 {
     margin: 0;
-    /* Elimina margen por defecto del título */
 }
 
-/* Estilo del título en la portada */
-.titulo-portada {
-    position: absolute;
-    top: 10px;
-    /* Ajustar la posición vertical */
-    left: 48%;
-    transform: translateX(-50%);
-    font-size: 1.25em;
-    /* Tamaño de fuente ajustado */
-    color: rgb(255, 255, 255);
-    /* Color del texto */
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
-    /* Sombra para mejorar la legibilidad */
-    font-family: 'Poppins', sans-serif;
-    /* Fuente mejorada */
-    font-weight: 600;
-    /* Negrita */
-    z-index: 10;
-    /* Asegura que esté encima de la imagen */
-    white-space: nowrap;
-    /* Evita el salto de línea */
-    margin: 0 10px;
-    /* Añade margen horizontal */
-}
-
-
-/* Asegurar que la imagen del header esté en un nivel inferior */
-.header-image {
-    position: relative;
-    z-index: 1;
-    /* La imagen tendrá un z-index más bajo */
-}
-
-/* Estilo del texto de localización debajo de la imagen */
+.titulo-portada,
 .titulo-inferior {
-    position: relative;
-    /* Cambiar a relative */
-    top: 20px;
-    /* Ajusta el valor para que esté más arriba */
-    margin-top: 10px;
-    /* Añadir margen superior si es necesario */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1em;
-    /* Tamaño de fuente ajustado */
-    color: rgb(255, 255, 255);
-    /* Color del texto */
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
-    /* Sombra para mejorar la legibilidad */
     font-family: 'Poppins', sans-serif;
-    /* Fuente mejorada */
-    font-weight: 400;
-    /* Peso de fuente normal */
-    z-index: 10;
-    /* Asegura que esté encima de la imagen */
     white-space: nowrap;
-    /* Evita el salto de línea */
-    margin: 0 10px;
-    /* Añade margen horizontal */
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    width: 100%;
+    text-align: center;
 }
+
+.titulo-portada {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem; /* Espacio hacia la imagen */
+}
+
+.header-image {
+    margin: 0;
+    max-width: 95%;
+    height: auto;
+}
+
+.titulo-inferior {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-top: 0.5rem; /* Espacio desde la imagen */
+}
+
+
 
 nav {
-    margin-top: 22px;
-    /* Ajusta este valor según sea necesario */
+    margin-top: 0.01rem; /* Espacio entre el texto y los botones */
 }
-
 
 nav ul {
     list-style: none;
-    /* Elimina viñetas de la lista */
     padding: 0;
-    /* Elimina padding por defecto */
-    margin: 0 1px;
-    margin-top: 45px;
-    margin-bottom: 12px;
+    margin: 45px 1px 12px;
     display: flex;
     justify-content: center;
-    gap: 0.1rem; 
-    list-style: none;
+    gap: 0.1rem;
     flex-wrap: nowrap;
-
 }
-
-
 
 nav ul li {
     display: inline;
-    /* Coloca los elementos de la lista en línea */
     margin: 0 10px;
-    /* Espaciado horizontal entre los elementos de la lista */
 }
 
+/* Estilo de botones de navegación para AMBOS temas */
 nav ul li a {
     color: #ffffff;
-    /* Blanco para mayor contraste */
     text-decoration: none;
-    padding: 10px 10px;
-    border: 2px solid #CC0000;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
-        text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    /* Fondo transparente por defecto */
 }
 
 nav ul li a:hover {
-    background: #CC0000;
+    background: var(--primary-color);
     color: #ffffff;
-    /* Contraste claro al pasar el mouse */
+    box-shadow: 0 0 15px var(--primary-color);
 }
 
 
-nav ul li a:focus {
-    outline: 2px dashed #CC0000;
-    background: #CC0000;
-    color: #fff;
-}
-
+/* 3. CONTENIDO PRINCIPAL Y SECCIONES
+-------------------------------------------------- */
 main {
     padding: 1rem;
-    /* Espacio en el área principal */
 }
 
 section {
     margin-bottom: 2rem;
-    /* Espacio debajo de cada sección */
 }
 
 h2 {
-    border-bottom: 2px solid #333;
-    /* Línea debajo del título */
+    border-bottom: 2px solid var(--h2-border-color);
+    color: var(--h2-color);
     padding-bottom: 0.5rem;
-    /* Espaciado debajo del título */
     text-align: center;
-    /* Centrar el título */
+    font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
 }
 
-.titulo-servicios {
+.location-selector-container {
     text-align: center;
-    display: inline-block;
-    margin: 20px auto;
-    margin-top:1px; 
-    padding: 20px 30px;
-    border: 2px solid #CC0000;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #CC0000, #6610f2);
-    color: white;
+    padding: 2rem 1rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .location-selector-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.location-selector-container h2 {
+    border-bottom: none;
     font-size: 1.5rem;
-    font-weight: bold;
-    transition: all 0.5s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Centrar el bloque */
-.titulo-servicios-container {
-    text-align: center;
-}
-
-/* Animación al hacer hover */
-.titulo-servicios:hover {
-    background: linear-gradient(135deg, #6610f2, #d63384);
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-
-.servicio {
-    background: #fff;
-    /* Fondo blanco para los servicios */
-    border: 1px solid #ccc;
-    /* Borde gris claro */
-    padding: 1rem;
-    /* Espacio interno */
     margin-bottom: 1rem;
-    /* Espacio debajo de cada servicio */
-    border-radius: 10px;
-    /* Esquinas más redondeadas */
-    text-align: center;
-    /* Centrar contenido del servicio */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.2);
-    /* Sombra suave */
-    transition: transform 0.2s, box-shadow 0.2s;
-    /* Efecto de transición suave */
 }
 
-/* Efecto hover */
-.servicio:hover {
-    transform: translateY(-2px);
-    /* Eleva el servicio al pasar el mouse */
+.location-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.location-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    /* Aumenta la sombra al pasar el mouse */
 }
 
-/* Media query para pantallas pequeñas */
-@media (max-width: 600px) {
-    .servicio {
-        padding: 0.5rem;
-        /* Reducir el padding en pantallas pequeñas */
-    }
-
-    .titulo-portada,
-    .titulo-inferior {
-        font-size: 1em;
-        white-space: normal;
-        text-align: center;
-        width: 100%;
-        left: 0;
-        transform: none;
-    }
+.location-button:hover {
+    background-color: var(--primary-color-hover);
+    transform: translateY(-3px);
 }
 
 
+/* 4. TARJETAS DE SERVICIO
+-------------------------------------------------- */
+.servicio {
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-.servicio-detalles {
+.servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.servicio-destacado {
+    border: 1px solid var(--primary-color);
+    transform: scale(1.02);
+}
+
+body.dark-mode .servicio-destacado {
+    box-shadow: 0 8px 32px var(--primary-color);
+}
+
+h3.servicio-titulo,
+h3.faq-question {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color-strong);
+    transition: color 0.3s ease;
+}
+
+body.dark-mode h3.servicio-titulo,
+body.dark-mode h3.faq-question {
+    color: #f1f1f1;
+}
+
+
+h3.servicio-titulo:hover {
+    color: var(--primary-color);
+}
+
+.servicio-detalles-destacado h3,
+.servicio-titulo-destacado {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.servicio-detalles,
+.faq-answer {
     max-height: 0;
-    /* Altura máxima inicial oculta */
     overflow: hidden;
-    /* Oculta el contenido que desborda */
     transition: max-height 0.3s ease;
-    /* Transición para la altura */
-}
-
-.servicio-detalles.activo {
-    max-height: 1000px;
-    /* suficientemente grande para contener todo el contenido */
+    color: var(--text-color-subtle);
 }
 
 .servicio-detalles p {
     margin: 0;
-    /* Elimina el margen por defecto */
     padding: 0;
-    /* Elimina el padding por defecto */
-    margin-bottom: 0.4em;
-    /* Espacio debajo de cada párrafo */
+    margin-bottom: 0.4rem;
 }
 
 .servicio-detalles strong {
-    margin-bottom: 0.6em;
-    /* Espacio opcional debajo del título del servicio */
+    margin-bottom: 0.6rem;
+    color: var(--text-color-strong);
 }
 
-.faq-item {
-    margin-bottom: 1rem;
-    /* Espacio debajo de cada ítem FAQ */
-}
 
-.faq-question {
-    cursor: pointer;
-    /* Cambia el cursor al pasar el mouse */
-    background: #eaeaea;
-    /* Color de fondo de la pregunta */
-    padding: 1rem;
-    /* Espaciado interno */
-    border: 1px solid #ddd;
-    /* Borde gris claro */
-    border-radius: 5px;
-    /* Bordes redondeados */
-}
-
-.faq-answer {
-    max-height: 0;
-    /* Altura inicial oculta */
-    overflow: hidden;
-    /* Oculta el contenido que desborda */
-    transition: max-height 0.3s ease;
-    /* Transición para la altura */
-}
-
-blockquote {
-    background: #fff;
-    /* Fondo blanco para citas */
-    border-left: 10px solid #333;
-    /* Borde izquierdo para destacar */
-    margin: 1rem 0;
-    /* Margen arriba y abajo */
-    padding: 1rem;
-    /* Espacio interno */
-    border-radius: 5px;
-    /* Esquinas redondeadas */
-    text-align: center;
-    /* Centrar contenido de los testimonios */
-    font-style: italic;
-    color: #555;
-}
-
-form {
-    background: #fff;
-    /* Fondo blanco para el formulario */
-    padding: 1rem;
-    /* Espacio interno */
-    border: 1px solid #ddd;
-    /* Borde gris claro */
-    border-radius: 5px;
-    /* Esquinas redondeadas */
-    text-align: center;
-    /* Centrar el formulario */
-}
-
-form label {
-    display: block;
-    /* Coloca cada etiqueta en una nueva línea */
-    margin-bottom: 0.5rem;
-    /* Espacio debajo de la etiqueta */
-    color: #000000;
-    /* Negro para las etiquetas */
-}
-
-form input,
-form textarea {
-    width: 100%;
-    /* Ancho completo */
-    padding: 0.5rem;
-    /* Espacio interno */
-    margin-bottom: 1rem;
-    /* Espacio debajo de los campos */
-    border: 1px solid #ddd;
-    /* Bordes gris claro */
-    border-radius: 5px;
-    /* Esquinas redondeadas */
-}
-
-form button {
-    background: #CC0000;
-    /* Rojo para el botón */
-    color: #FFFFFF;
-    /* Blanco para el texto del botón */
-    border: none;
-    /* Sin borde */
-    padding: 0.75rem 1.5rem;
-    /* Mayor relleno para más tamaño */
-    cursor: pointer;
-    /* Cambia el cursor al pasar el mouse */
-    border-radius: 5px;
-    /* Esquinas redondeadas */
-    font-size: 1rem;
-    /* Tamaño de fuente */
-    transition: background 0.3s ease, transform 0.2s ease;
-    /* Transición suave */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Sombra para efecto tridimensional */
-}
-
-form button:hover {
-    background: #D40000;
-    /* Un rojo más oscuro al pasar el cursor */
-    transform: translateY(-2px);
-    /* Efecto de "levantamiento" al pasar el cursor */
-}
-
+/* 5. OTROS ELEMENTOS
+-------------------------------------------------- */
 footer {
-    background: #000000;
-    /* Negro para el pie de página */
-    color: #FFFFFF;
-    /* Blanco para el texto del pie de página */
+    background: var(--footer-bg);
+    color: #ffffff;
+    /* El color de texto del footer es siempre blanco */
     text-align: center;
-    /* Centrar texto en el pie de página */
     padding: 1rem 0;
-    /* Espaciado arriba y abajo */
-}
-
-.contacto {
-    text-align: center;
-    /* Centrar contenido de contacto */
+    transition: background 0.3s ease;
 }
 
 .contact-icons {
     display: flex;
-    /* Flexbox para alinear los íconos */
     justify-content: center;
-    /* Centrar los íconos de contacto */
     margin-top: 1rem;
-    /* Espacio superior */
+    gap: 15px;
 }
 
 .contact-icon {
     width: 40px;
-    /* Ajusta el tamaño según sea necesario */
     height: auto;
-    /* Mantiene la proporción */
-    margin: 0 10px;
-    /* Espaciado entre íconos */
+    transition: transform 0.2s ease;
+}
+
+body.dark-mode .contact-icon {
+    filter: brightness(0) invert(1);
+    /* Pone los íconos blancos en modo oscuro */
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
 }
 
 #scrollToTop {
     position: fixed;
-    /* Posición fija */
     bottom: 20px;
-    /* Distancia desde el fondo */
     right: 20px;
-    /* Distancia desde la derecha */
-    background-color: #CC0000;
-    /* Fondo rojo */
+    background-color: var(--primary-color);
     color: white;
-    /* Texto blanco */
     border: none;
-    /* Sin borde */
     border-radius: 5px;
-    /* Esquinas redondeadas */
     padding: 10px;
-    /* Relleno */
     cursor: pointer;
-    /* Cambia el cursor al pasar el mouse */
-    font-size: 18px;
-    /* Tamaño de fuente */
+    font-size: 1.2rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* Sombra */
     transition: background 0.3s ease;
-    /* Transición suave */
     z-index: 1000;
-    /* Asegura que esté sobre otros elementos */
 }
 
 #scrollToTop:hover {
-    background-color: #D40000;
-    /* Fondo más oscuro al pasar el cursor */
-}
-
-.modal {
-    display: none;
-    /* Oculto por defecto */
-    position: fixed;
-    /* Posición fija */
-    z-index: 1000;
-    /* Asegura que esté sobre otros elementos */
-    left: 0;
-    /* Alineación izquierda */
-    top: 0;
-    /* Alineación superior */
-    width: 100%;
-    /* Ancho completo */
-    height: 100%;
-    /* Alto completo */
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo oscuro con opacidad */
-}
-
-.modal-content {
-    background-color: #fff;
-    /* Fondo blanco para el contenido del modal */
-    margin: 15% auto;
-    /* Margen vertical del 15% y horizontal centrado */
-    padding: 20px;
-    /* Espacio interno */
-    width: 80%;
-    /* Ancho del contenido */
-    max-width: 400px;
-    /* Ancho máximo */
-    text-align: center;
-    /* Centrar texto en el modal */
-}
-
-button {
-    padding: 10px 20px;
-    /* Espacio interno para botones */
-    margin: 10px;
-    /* Espacio alrededor de los botones */
-    cursor: pointer;
-    /* Cambia el cursor al pasar el mouse */
+    background-color: var(--primary-color-hover);
 }
 
 .consultar-button {
     display: inline-flex;
-    /* Permite alinear el texto y el icono en línea */
     align-items: center;
-    /* Alinea verticalmente el contenido del botón */
     background-color: #25D366;
-    /* Color verde de WhatsApp */
     color: white;
-    /* Color del texto */
     padding: 8px 15px;
-    /* Espaciado alrededor del texto */
     border-radius: 25px;
-    /* Bordes redondeados */
     text-decoration: none;
-    /* Sin subrayado */
+    font-weight: bold;
+    gap: 8px;
 }
 
 .whatsapp-icon {
-    width: 35px;
-    /* Ajusta el tamaño según lo necesites */
-    height: 35px;
-    /* Mantiene la proporción */
-    margin-left: 5px;
-    /* Espacio entre el texto y el icono */
-    vertical-align: middle;
-    /* Alineación vertical con el texto */
+    width: 25px;
+    height: 25px;
 }
 
-.mapa {
-    display: none;
-    /* Asegúrate de que este estilo no esté en conflicto */
-}
-
-/* Asegura que los contenedores de los mapas sean responsivos */
 .mapa {
     width: 100%;
-    /* El mapa ocupará todo el ancho disponible */
     max-width: 500px;
-    /* Puedes ajustar el máximo ancho para pantallas grandes */
     margin: 0 auto;
-    /* Centra el contenedor del mapa */
     text-align: center;
-    /* Centra el contenido del mapa */
 }
 
-/* Establece el tamaño de la imagen del mapa */
 .mapa img {
     width: 100%;
-    /* La imagen se ajustará al ancho del contenedor */
-    height: 100;
-    /* Mantiene la proporción de la imagen */
+    height: auto;
     border-radius: 8px;
-    /* Opcional, para darle bordes redondeados */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    /* Opcional, agrega sombra */
 }
 
-/* Estilos generales para móviles */
 #desktop-message {
     display: none;
-    /* Ocultar mensaje de escritorio en móviles */
 }
 
 #mobile-content {
     display: block;
-    /* Mostrar contenido de móviles */
 }
 
-/* Estilos para pantallas grandes (escritorio) */
 @media only screen and (min-width: 768px) {
     #mobile-content {
         display: none;
-        /* Ocultar contenido de móviles en escritorio */
     }
 
     #desktop-message {
-        display: block;
-        /* Mostrar mensaje de escritorio */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
         padding: 50px;
         font-family: 'Poppins', sans-serif;
-        background-color: #f0f0f0;
+        background-color: var(--desktop-bg);
+        color: var(--desktop-text);
         height: 100vh;
     }
 
@@ -642,74 +508,3 @@ button {
         font-size: 1.5em;
     }
 }
-
-/* Estilo para el modal */
-.modal-content {
-    background-color: #fff;
-    /* Fondo blanco */
-    color: #000;
-    /* Texto en negro */
-    border: 2px solid #000;
-    /* Borde negro */
-    padding: 2rem;
-    border-radius: 10px;
-    /* Esquinas redondeadas del modal */
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    /* Sombra para darle profundidad */
-}
-
-/* Títulos del modal */
-.modal-content h1 {
-    font-size: 2rem;
-    color: #000;
-    /* Título principal en negro */
-    margin-bottom: 1rem;
-}
-
-.modal-content h2 {
-    font-size: 1.5rem;
-    color: #ce2222;
-    /* Subtítulo en un rojo más suave */
-    margin-bottom: 2rem;
-}
-
-/* Estilo para los botones */
-.modal-content button {
-    background-color: #da3131;
-    /* Rojo menos intenso */
-    color: #fff;
-    /* Texto en blanco */
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border-radius: 50px;
-    /* Botones redondeados */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0.5rem;
-}
-
-/* Efecto hover para los botones */
-.modal-content button:hover {
-    background-color: #000;
-    /* Fondo negro al pasar el ratón */
-    color: #fff;
-    /* Texto en blanco */
-}
-
-
-
-/* Animación para que aparezca suavemente */
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-

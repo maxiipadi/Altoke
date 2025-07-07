@@ -1,164 +1,108 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Smooth scroll para enlaces con #
-    document.querySelectorAll('nav ul li a[href^="#"]').forEach((link) => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href");
-            const targetSection = document.querySelector(targetId);
-            targetSection?.scrollIntoView({ behavior: "smooth" });
-        });
-    });
-
-
-    // Acordeón de FAQs
-    document.querySelectorAll(".faq-question").forEach((question) => {
-        question.addEventListener("click", () => {
-            const answer = question.nextElementSibling;
-            if (answer.style.maxHeight) {
-                answer.style.maxHeight = null;
-            } else {
-                answer.style.maxHeight = answer.scrollHeight + "px";
-            }
-        });
-    });
-
-    // Botón "Subir arriba"
-    const scrollToTopButton = document.getElementById("scrollToTop");
-    window.addEventListener("scroll", function () {
-        if (
-            document.body.scrollTop > 100 ||
-            document.documentElement.scrollTop > 100
-        ) {
-            scrollToTopButton.style.display = "block";
-        } else {
-            scrollToTopButton.style.display = "none";
+    
+    // =================================================================
+    //  1. FUENTE ÚNICA DE VERDAD (Single Source of Truth)
+    //  Toda la información de contacto en un solo lugar.
+    //  Si un link cambia, lo modificás ACÁ y listo.
+    // =================================================================
+    const contactData = {
+        sgo: {
+            whatsapp: "https://wa.me/5493854992929",
+            facebook: "https://www.facebook.com/altokeservtec/",
+            instagram: "#", // Link de SGO o general si no hay
+            tiktok: "#"      // Link de SGO o general si no hay
+        },
+        jujuy: {
+            whatsapp: "https://wa.me/5493885238366",
+            facebook: "https://www.facebook.com/profile.php?id=100065417592160",
+            instagram: "https://www.instagram.com/l_toke.serviciotecnico/",
+            tiktok: "https://www.tiktok.com/@al.toke.serviciotecnico"
         }
-    });
+    };
 
-    scrollToTopButton.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    });
-
-    // Lógica para el acordeón de servicios
-    document.querySelectorAll('.servicio-titulo').forEach(titulo => {
-        titulo.addEventListener('click', () => {
-            const detalles = titulo.nextElementSibling;
-
-            // Alternar la visibilidad de la respuesta con un solo clic
-            if (detalles.style.maxHeight === "0px" || !detalles.style.maxHeight) {
-                detalles.style.maxHeight = detalles.scrollHeight + "px"; // Expande el contenido
-            } else {
-                detalles.style.maxHeight = "0px"; // Colapsa el contenido
-            }
-        });
-    });
-
-
-    // Lógica para mostrar la ubicaciónAdd commentMore actions
-    const modal = document.getElementById('locationModal');
+    // =================================================================
+    //  2. LÓGICA DE UBICACIÓN (Reemplaza el Modal)
+    // =================================================================
+    const locationSelector = document.getElementById('location-selector');
+    const mainContentContainer = document.getElementById('main-content-container');
     const sgoButton = document.getElementById('sgoButton');
     const jujuyButton = document.getElementById('jujuyButton');
 
-    // Mostrar el modal al cargar la página
-    modal.style.display = 'block';
+    sgoButton.addEventListener('click', () => setLocation('sgo'));
+    jujuyButton.addEventListener('click', () => setLocation('jujuy'));
 
-    // Selección de Santiago del Estero
-    sgoButton.addEventListener('click', function () {
-        console.log("Santiago del Estero seleccionado"); // Debugging
-        modal.style.display = 'none';
-        togglePrices('sgo');
-        updateContactLinks('sgo');
-        sendLocationToGoogleApps('Santiago del Estero');
-        showMap('sgo');
-        mostrarImagenes('sgo'); // Asegúrate de llamar a mostrarImagenes aquí
-    });
-
-    function togglePrices(location) {
-        // Aquí puedes implementar la lógica para mostrar u ocultar precios
-        console.log("Toggle precios para: " + location);
-        // Implementa la lógica necesaria aquí
+    function setLocation(location) {
+        // Actualiza todos los links de la página
+        updateContactLinks(location);
+        // Muestra el mapa correcto
+        showMap(location);
+        // Actualiza el texto en el header
+        updateHeaderText(location);
+        // Oculta el selector y muestra el contenido principal
+        locationSelector.style.display = 'none';
+        mainContentContainer.style.display = 'block';
+        // Envía la data a Google (tu función)
+        sendLocationToGoogleApps(location === 'sgo' ? 'Santiago del Estero' : 'Jujuy');
     }
 
-    jujuyButton.addEventListener('click', function () {
-        console.log("Jujuy seleccionado"); // Debugging
-        modal.style.display = 'none';
-        togglePrices('jujuy');
-        updateContactLinks('jujuy');
-        sendLocationToGoogleApps('Jujuy');
-        showMap('jujuy');
-        mostrarImagenes('jujuy'); // Asegúrate de llamar a mostrarImagenes aquí
-    });
-
-
-    // Función para mostrar el mapa correspondiente
-    function showMap(location) {
-        const mapaSgo = document.getElementById('mapaSgo');
-        const mapaJujuy = document.getElementById('mapaJujuy');
-
-        // Muestra el mapa correspondiente según la ubicación
-        if (location === 'sgo') {
-            mapaSgo.style.display = 'block';
-            mapaJujuy.style.display = 'none';
-        } else {
-            mapaSgo.style.display = 'none';
-            mapaJujuy.style.display = 'block';
-        }
-    }
-
-    // Función para actualizar los enlaces de contacto
     function updateContactLinks(location) {
-        const links = document.querySelectorAll('.contact-link');
-
-        links.forEach(link => {
-            const sgoUrl = link.getAttribute('data-sgo');
-            const jujuyUrl = link.getAttribute('data-jujuy');
-
-            // Cambia el href según la ubicación
-            link.href = location === 'sgo' ? sgoUrl : jujuyUrl;
+        const locationData = contactData[location];
+        document.querySelectorAll('.contact-link').forEach(link => {
+            if (link.id.includes('whatsapp')) link.href = locationData.whatsapp;
+            if (link.id.includes('facebook')) link.href = locationData.facebook;
+            if (link.id.includes('instagram')) link.href = locationData.instagram;
+            if (link.id.includes('tiktok')) link.href = locationData.tiktok;
         });
     }
 
-    // Función para enviar la ubicación al Google Apps Script
-    function sendLocationToGoogleApps(location) {
+    function showMap(location) {
+        document.getElementById('mapaSgo').style.display = location === 'sgo' ? 'block' : 'none';
+        document.getElementById('mapaJujuy').style.display = location === 'jujuy' ? 'block' : 'none';
+    }
+
+    function updateHeaderText(location) {
+        const textoLocalizacion = document.querySelector('.texto-localizacion');
+        textoLocalizacion.textContent = location === 'sgo' ? 'Santiago del Estero, Capital' : 'Palpalá, Jujuy';
+    }
+
+    function sendLocationToGoogleApps(locationName) {
         fetch("https://script.google.com/macros/s/AKfycbxWRKSjAR5MymL0OGeh0JZxTkUfJqxm19FDzfOPN_pInhVXf9pXQQACjpgGxE9E7GUyUw/exec", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ location: location }) // Enviando la ubicación seleccionada
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Error en la solicitud: " + response.statusText);
-                }
-                return response.json(); // Convertir la respuesta a JSON
-            })
-            .then(data => {
-                console.log("Respuesta del servidor:", data); // Manejar la respuesta
-            })
-            .catch(error => {
-                console.error("Error al enviar la ubicación:", error); // Manejar errores
-            });
+            body: JSON.stringify({ location: locationName })
+        }).then(response => response.json())
+          .then(data => console.log("Visita registrada:", data))
+          .catch(error => console.error("Error al registrar visita:", error));
     }
 
-    // Función para mostrar el mapa correspondiente
-    function showMap(location) {
-        const mapaSgo = document.getElementById('mapaSgo');
-        const mapaJujuy = document.getElementById('mapaJujuy');
-        const textoLocalizacion = document.querySelector('.texto-localizacion');
 
-        // Muestra el mapa correspondiente según la ubicación
-        if (location === 'sgo') {
-            mapaSgo.style.display = 'block';
-            mapaJujuy.style.display = 'none';
-            textoLocalizacion.textContent = 'Santiago del Estero, Capital'; // Actualiza el texto
-        } else {
-            mapaSgo.style.display = 'none';
-            mapaJujuy.style.display = 'block';
-            textoLocalizacion.textContent = 'Palpalá, Jujuy'; // Actualiza el texto
-        }
-    }
+    // =================================================================
+    //  3. LÓGICA DE INTERFAZ (Acordeones, Scroll, etc.)
+    //  (Tu código original, funciona perfecto)
+    // =================================================================
+
+    // Acordeón de Servicios
+    document.querySelectorAll('.servicio-titulo').forEach(titulo => {
+        titulo.addEventListener('click', () => {
+            const detalles = titulo.nextElementSibling;
+            detalles.style.maxHeight = !detalles.style.maxHeight || detalles.style.maxHeight === "0px" ? detalles.scrollHeight + "px" : "0px";
+        });
+    });
+
+    // Acordeón de FAQs
+    document.querySelectorAll(".faq-question").forEach(question => {
+        question.addEventListener("click", () => {
+            const answer = question.nextElementSibling;
+            answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + "px";
+        });
+    });
+    
+    // Botón "Subir arriba"
+    const scrollToTopButton = document.getElementById("scrollToTop");
+    window.addEventListener("scroll", () => {
+        scrollToTopButton.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+    });
+    
+    scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 });

@@ -6,253 +6,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Altoke Servicio Técnico - Reparación de celulares, computadoras, desbloqueo de netbooks y mantenimiento en Santiago del Estero. ¡Tu taller de confianza!">
+        content="Altoke Servicio Técnico - Reparación de celulares y computadoras, desbloqueo y mantenimiento en Santiago del Estero y Palpalá, Jujuy. ¡Tu taller de confianza!">
     <meta name="keywords"
-        content="reparación de celulares, desbloqueo netbooks, mantenimiento PC, Altoke, servicio técnico, Santiago del Estero">
-    <meta name="author" content="Altoke Servicio Técnico">
+        content="reparación de celulares, desbloqueo netbooks, mantenimiento PC, Altoke, servicio técnico, Santiago del Estero, Palpalá, Jujuy">
+    <meta name="author" content="Maxii Padilla - Altoke Servicio Técnico">
 
-    <title>Altoke Servicio Técnico - Reparación de computadoras y celulares</title>
+    <title>Altoke Servicio Técnico - Reparación de PC y Celulares en Santiago del Estero y Jujuy</title>
+
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/components.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Montserrat:wght@700&display=swap"
         rel="stylesheet">
-    <script src="/static/js/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <!-- Mensaje de "En construcción" para escritorio -->
     <div id="desktop-message">
-        <h1>En construcción</h1>
-        <p>Este sitio solo está disponible en dispositivos móviles.</p>
+        <h1>Página en Construcción</h1>
+        <p>
+            Este sitio está optimizado para dispositivos móviles. La versión de escritorio estará disponible
+            próximamente.
+        </p>
     </div>
 
-    <!-- Contenido para móviles -->
     <div id="mobile-content">
 
         <header>
+            <div class="theme-switcher-container">
+                <button id="theme-switcher" title="Cambiar tema"></button>
+            </div>
+
             <h1 class="titulo-portada">Tu Taller de Confianza</h1>
+
             <div class="header-image">
-                <img src="/static/img/splash4-rem.png" alt="Altoke Servicio Técnico" class="rotating-image">
+                <img src="/static/img/splash4-rem.png" alt="Logo de Altoke Servicio Técnico girando"
+                    class="rotating-image">
             </div>
+
             <div class="titulo-inferior">
-                <span class="texto-localizacion">Santiago del Estero, Capital</span>
+                <span class="texto-localizacion"></span>
             </div>
-            <div id="navbar"></div>
+
+            <nav id="navbar"></nav>
         </header>
+
         <main>
-
-            <div id="locationModal" class="modal">
-                <div class="modal-content">
-                    <h1>¡Bienvenido! 😊</h1>
-                    <h2> ¿De dónde eres? </h2>
-                    <button id="sgoButton">Santiago del Estero</button>
-                    <button id="jujuyButton">Jujuy 🌵</button>
-                    <!--   <button id="catrielButton">📍 Catriel 🌄</button> -->
+            <section id="location-selector" class="location-selector-container">
+                <h2>¿De dónde sos?</h2>
+                <div class="location-buttons">
+                    <button id="sgoButton" class="location-button">📍 Santiago del Estero</button>
+                    <button id="jujuyButton" class="location-button">🌵 Palpalá, Jujuy</button>
                 </div>
-            </div>
+            </section>
 
-            <div class="titulo-servicios-container">
-                <h3 class="titulo-servicios">Nuestros Servicios</h3>
-            </div>
+            <div id="main-content-container" style="display: none;">
 
-
-            <section id="servicios">
-                <!-- Desbloqueo de Netbooks del Gobierno -->
-                <div class="servicio">
-                    <h3 class="servicio-titulo">Desbloqueo Definitivo</h3>
-                    <div class="servicio-detalles" style="max-height: 0; overflow: hidden;">
-
-                        <p><strong>Todos los Modelos</strong></p>
-                        <p><em>Servicio de desbloqueo para todos los modelos de netbooks del gobierno.</em></p>
-
-                        <img src="/static/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                        <a href="https://wa.me/5493854992929" target="_blank" class="consultar-button contact-link"
-                            data-sgo="https://wa.me/5493854992929" data-jujuy="https://wa.me/5493885238366">
-                            Consultar
-                        </a>
-
-                    </div>
+                <div class="titulo-servicios-container">
+                    <h2 class="titulo-servicios">Nuestros Servicios</h2>
                 </div>
 
-                <!-- Instalaciones y Mantenimientos -->
-                <div class="servicio">
-                    <h3 class="servicio-titulo">Instalaciones y Mantenimientos</h3>
-                    <div class="servicio-detalles" style="max-height: 0; overflow: hidden;">
-                        <p><strong>Instalación Completa de Windows</strong></p>
-                        <p><em>Instalación del sistema operativo Windows junto con controladores y software
-                                esencial.</em></p>
-
-                        <p><strong>Mantenimiento Completo</strong></p>
-                        <p><em>Servicio integral de mantenimiento que incluye limpieza interna y optimización del
-                                rendimiento.</em></p>
-
-                        <p><strong>Configuración de BIOS</strong></p>
-                        <p><em>Configuración adecuada del BIOS para asegurar un óptimo rendimiento del sistema.</em></p>
-
-                        <p><strong>Instalación de Hardware</strong></p>
-                        <p><em>Instalación de componentes de hardware según las necesidades del cliente.</em></p>
-
-                        <p><strong>Instalación de Drivers</strong></p>
-                        <p><em>Instalación y actualización de controladores para garantizar la compatibilidad del
-                                sistema.</em></p>
-
-                        <p><strong>Respaldo de Datos</strong></p>
-                        <p><em>Servicio de respaldo de datos para proteger la información del usuario.</em></p>
-
-                        <img src="/static/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                        <a href="https://wa.me/5493854992929" target="_blank" class="consultar-button contact-link"
-                            data-sgo="https://wa.me/5493854992929" data-jujuy="https://wa.me/5493885238366">
-                            Consultar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Reparaciones Especializadas -->
-                <div class="servicio">
-                    <h3 class="servicio-titulo">Reparaciones Especializadas</h3>
-                    <div class="servicio-detalles" style="max-height: 0; overflow: hidden;">
-                        <p><strong>Reprogramación de BIOS</strong></p>
-                        <p><em>Actualización y reconfiguración del BIOS.</em></p>
-
-                        <p><strong>Limpieza de Virus/Malware (Sin pérdida de datos)</strong></p>
-                        <p><em>Eliminación de virus y malware, protegiendo tus datos.</em></p>
-
-                        <p><strong>Reparación de Placas Madre (Netbooks del Gobierno)</strong></p>
-                        <p><em>Diagnóstico y reparación de fallas en placas madre de netbooks.</em></p>
-
-                        <img src="/static/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                        <a href="https://wa.me/5493854992929" target="_blank" class="consultar-button contact-link"
-                            data-sgo="https://wa.me/5493854992929" data-jujuy="https://wa.me/5493885238366">
-                            Consultar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Reparaciones de Celulares -->
-                <div class="servicio">
-                    <h3 class="servicio-titulo">Reparaciones de Celulares</h3>
-                    <div class="servicio-detalles" style="max-height: 0; overflow: hidden;">
-                        <p><strong>Cambio de Módulo</strong></p>
-                        <p><em>Reemplazo del módulo del celular para restaurar su funcionalidad.</em></p>
-
-                        <p><strong>Cambio de Pin de Carga</strong></p>
-                        <p><em>Reparación o reemplazo del conector de carga del dispositivo.</em></p>
-
-                        <p><strong>Desbloqueo de Cuenta (Celulares)</strong></p>
-                        <p><em>Desbloqueo de cuentas y servicios para restablecer el uso completo del dispositivo</em>
+                <article class="servicio servicio-destacado">
+                    <h3 class="servicio-titulo-destacado">Instalación Completa de Windows</h3>
+                    <div class="servicio-detalles-destacado">
+                        <p>
+                            <strong>¿Tu compu anda lenta, se traba o no arranca? La dejamos como nueva en
+                                aproximadamente 1 hora.</strong>
                         </p>
-                        <img src="/static/img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-                        <a href="https://wa.me/5493854992929" target="_blank" class="consultar-button contact-link"
-                            data-sgo="https://wa.me/5493854992929" data-jujuy="https://wa.me/5493885238366">
-                            Consultar
+                        <p>
+                            Hacemos una instalación limpia de Windows 10/11, respaldando tus fotos y archivos. Incluye
+                            drivers, Office y todos los programas que necesitás para trabajar o estudiar.
+                        </p>
+                        <p>
+                            <strong>Desde: $25.000</strong>
+                        </p>
+                        <a href="#" id="whatsapp-link-destacado" target="_blank" class="consultar-button contact-link">
+                            <img src="/static/img/whatsapp.png" alt="Ícono de WhatsApp" class="whatsapp-icon">
+                            Agendar Instalación
                         </a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Otros -->
-                <div class="servicio">
-                    <h3 class="servicio-titulo">🔧 Garantía en Todos los Servicios</h3>
-                    <div class="servicio-detalles" style="max-height: 0; overflow: hidden;">
-                        <p><em>En Altoke Servicio Técnico, ofrecemos garantía en todas nuestras reparaciones. ¡Tu equipo
-                                estará en las mejores manos!</p></em>
+                <section id="servicios">
+                    <article class="servicio">
+                        <h3 class="servicio-titulo">Desbloqueo Definitivo de Netbooks</h3>
+                        <div class="servicio-detalles">
+                            <p>
+                                ¿La netbook del gobierno se bloqueó y no te deja hacer nada? La desbloqueamos de forma
+                                definitiva, sin importar el modelo.
+                            </p>
+                            <p>
+                                No más mensajes de bloqueo, queda libre para siempre. ¡Volvé a usarla para estudiar,
+                                trabajar o lo que necesites, sin interrupciones!
+                            </p>
+                            <p>
+                                Trabajo rápido y 100% garantizado.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="servicio">
+                        <h3 class="servicio-titulo">Mantenimiento y Optimizaciones</h3>
+                        <div class="servicio-detalles">
+                            <p>
+                                ¿Tu PC o notebook calienta mucho, hace ruido o está más lenta que antes? El polvo y la
+                                pasta térmica vieja son los culpables.
+                            </p>
+                            <p>
+                                Realizamos una limpieza profunda de coolers y componentes, y aplicamos pasta térmica de
+                                alta calidad. Optimizamos el sistema para que arranque y funcione mucho más rápido.
+                            </p>
+                            <p>
+                                Beneficio: Evitá daños caros por sobrecalentamiento y recuperá la velocidad original.
+                                ¡Alargá la vida útil de tu equipo!
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="servicio">
+                        <h3 class="servicio-titulo">Diagnóstico y Reparaciones Avanzadas</h3>
+                        <div class="servicio-detalles">
+                            <p>
+                                ¿Te aparecieron virus, errores extraños o tu equipo directamente no enciende? No lo des
+                                por perdido.
+                            </p>
+                            <p>
+                                Somos expertos en diagnóstico de fallas complejas. Eliminamos virus y malware cuidando
+                                siempre tus fotos y archivos, reparamos placas madre y solucionamos problemas de BIOS.
+                            </p>
+                            <p>
+                                Con más de 10 años de experiencia, le encontramos la vuelta para que vuelva a funcionar
+                                perfectamente.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="servicio">
+                        <h3 class="servicio-titulo">Reparación Express de Celulares</h3>
+                        <div class="servicio-detalles">
+                            <p>
+                                ¿Pantalla rota, no carga la batería o te olvidaste la cuenta de Google? ¡No te quedes
+                                sin celular!
+                            </p>
+                            <p>
+                                Hacemos cambios de módulo, pin de carga y baterías en el día (sujeto a stock del
+                                repuesto). También recuperamos el acceso a tu equipo.
+                            </p>
+                            <p>
+                                Te damos una solución rápida para que sigas conectado, usando repuestos de calidad y con
+                                garantía en la reparación.
+                            </p>
+                        </div>
+                    </article>
+                </section>
+
+                <article class="servicio">
+                    <h3 class="servicio-titulo">Servicios para el Gremio Técnico</h3>
+                    <div class="servicio-detalles">
+                        <p>
+                            <strong>¿Colega, tenés una reparación que se complicó, requiere herramientas específicas o
+                                simplemente no tenés tiempo?</strong>
+                        </p>
+                        <p>
+                            Optimizá tu taller y ofrecé un servicio más completo a tus clientes. Nos especializamos en:
+                        </p>
+                        <ul style="text-align: left; margin: 15px 0 15px 30px;">
+                            <li>Reparación de placas madre a nivel componente.</li>
+                            <li>Reparación de bisagras y carcasas.</li>
+                            <li>Desbloqueos de netbooks y celulares por cantidad.</li>
+                            <li>Diagnósticos electrónicos avanzados.</li>
+                        </ul>
+                        <p>
+                            <strong>Consultanos por nuestra modalidad de trabajo y lista de precios especiales para
+                                colegas. Ofrecemos tarifas diferenciales en servicios por volumen y acceso a nuestras
+                                capacidades de reparación avanzada.</strong>
+                        </p>
                     </div>
-                </div>
+                </article>
 
                 <section id="contacto">
                     <h2>Contáctanos</h2>
-                    <p>Para consultas o citas, por favor contáctanos:</p>
                     <div class="contact-icons">
-                        <!-- Facebook -->
-                        <a id="facebook-link" class="contact-link" data-sgo="https://www.facebook.com/altokeservtec/"
-                            data-jujuy="https://www.facebook.com/profile.php?id=100065417592160&mibextid=JRoKGi"
-                            target="_blank">
-                            <img src="/static/img/facebook.png" alt="Facebook" class="contact-icon">
-                        </a>
-                        <!-- WhatsApp -->
-                        <a id="whatsapp-link" class="contact-link" data-sgo="https://wa.me/5493854992929"
-                            data-jujuy="https://wa.me/5493885238366" target="_blank">
-                            <img src="/static/img/whatsapp.png" alt="WhatsApp" class="contact-icon">
-                        </a>
-                        <!-- Instagram -->
-                        <a id="instagram-link" class="contact-link" data-sgo="#"
-                            data-jujuy="https://www.instagram.com/l_toke.serviciotecnico/" target="_blank">
-                            <img src="/static/img/instagram.png" alt="Instagram" class="contact-icon">
-                        </a>
-                        <!-- TikTok -->
-                        <a id="tiktok-link" class="contact-link" data-sgo="#"
-                            data-jujuy="https://www.tiktok.com/@al.toke.serviciotecnico" target="_blank">
-                            <img src="/static/img/tiktok.png" alt="TikTok" class="contact-icon">
-                        </a>
+                        <a id="facebook-link" href="#" target="_blank" class="contact-link"><img
+                                src="/static/img/facebook.png" alt="Visita nuestra página de Facebook"
+                                class="contact-icon"></a>
+                        <a id="whatsapp-link" href="#" target="_blank" class="contact-link"><img
+                                src="/static/img/whatsapp.png" alt="Envíanos un mensaje por WhatsApp"
+                                class="contact-icon"></a>
+                        <a id="instagram-link" href="#" target="_blank" class="contact-link"><img
+                                src="/static/img/instagram.png" alt="Síguenos en Instagram" class="contact-icon"></a>
+                        <a id="tiktok-link" href="#" target="_blank" class="contact-link"><img
+                                src="/static/img/tiktok.png" alt="Encuéntranos en TikTok" class="contact-icon"></a>
                     </div>
+
                     <h2>Encuéntranos</h2>
-
-                    <p>¡Encuentra nuestros talleres fácilmente! Haz clic en el mapa para ver la ubicación en Google
-                        Maps:</p>
-
                     <div id="mapaSgo" class="mapa" style="display: none;">
                         <h3>Santiago del Estero, Capital</h3>
-                        <a href="https://maps.app.goo.gl/bPc9BFRbGXq2xLFo9" target="_blank">
-                            <img src="/static/img/sgomapa.jpg" alt="Ubicación Santiago del Estero">
+                        <a href="https://www.google.com/maps/search/?api=1&query=TU_DIRECCION_SGO_AQUI" target="_blank">
+                            <img src="/static/img/sgomapa.jpg" alt="Mapa de ubicación en Santiago del Estero">
                         </a>
                     </div>
-
                     <div id="mapaJujuy" class="mapa" style="display: none;">
                         <h3>Palpalá, Jujuy</h3>
-                        <a href="https://maps.app.goo.gl/cftctSnGUsb2PGxs7" target="_blank">
-                            <img src="/static/img/jujuymapa.jpg" alt="Ubicación Jujuy">
+                        <a href="https://www.google.com/maps/search/?api=1&query=TU_DIRECCION_JUJUY_AQUI"
+                            target="_blank">
+                            <img src="/static/img/jujuymapa.jpg" alt="Mapa de ubicación en Palpalá, Jujuy">
                         </a>
                     </div>
+                </section>
 
-
-
-                    <section id="faq">
-                        <h2>Preguntas Frecuentes</h2>
-                        <div class="faq">
-                            <h3 class="faq-question">¿Cuál es el costo del servicio de reparación?</h3>
-                            <div class="faq-answer">
-                                <p>Los precios varían según el tipo de servicio. Consulta la sección de servicios para
-                                    más detalles.</p>
-                            </div>
+                <section id="faq">
+                    <h2>Preguntas Frecuentes</h2>
+                    <div class="faq">
+                        <h3 class="faq-question">¿Cuál es el costo del servicio de reparación?</h3>
+                        <div class="faq-answer">
+                            <p>
+                                Los precios varían según el tipo de servicio. El servicio destacado de Instalación de
+                                Windows tiene un precio fijo, para otros consultanos y te damos un presupuesto sin
+                                cargo.
+                            </p>
                         </div>
-                        <div class="faq">
-                            <h3 class="faq-question">¿Cuánto tiempo tarda la reparación?</h3>
-                            <div class="faq-answer">
-                                <p>El tiempo de reparación depende del servicio, pero generalmente se completan en el
-                                    mismo día.</p>
-                            </div>
+                    </div>
+                    <div class="faq">
+                        <h3 class="faq-question">¿Cuánto tiempo tarda la reparación?</h3>
+                        <div class="faq-answer">
+                            <p>
+                                Depende de la complejidad y la disponibilidad de repuestos. Las instalaciones de
+                                software se completan en aproximadamente una hora, mientras que las reparaciones de
+                                hardware pueden llevar más tiempo. Siempre te daremos un tiempo estimado.
+                            </p>
                         </div>
-                        <div class="faq">
-                            <h3 class="faq-question">¿Ofrecen garantía en los servicios?</h3>
-                            <div class="faq-answer">
-                                <p>¡Sí! Ofrecemos garantía en todas nuestras reparaciones para tu tranquilidad.</p>
-                            </div>
+                    </div>
+                    <div class="faq">
+                        <h3 class="faq-question">¿Ofrecen garantía en los servicios?</h3>
+                        <div class="faq-answer">
+                            <p>
+                                ¡Sí! Todas nuestras reparaciones y servicios están garantizados. Queremos que te vayas
+                                con la tranquilidad de que tu equipo está en las mejores manos.
+                            </p>
                         </div>
-                        <div class="faq">
-                            <h3 class="faq-question">¿Qué métodos de pago aceptan?</h3>
-                            <div class="faq-answer">
-                                <p>Aceptamos efectivo, transferencias bancarias y pagos a través de MercadoPago.</p>
-                            </div>
+                    </div>
+                    <div class="faq">
+                        <h3 class="faq-question">¿Qué métodos de pago aceptan?</h3>
+                        <div class="faq-answer">
+                            <p>
+                                Aceptamos efectivo, transferencias bancarias y pagos a través de MercadoPago (tarjeta de
+                                crédito, débito y dinero en cuenta).
+                            </p>
                         </div>
-                        <div class="faq">
-                            <h3 class="faq-question">¿Puedo hacer una consulta sin costo?</h3>
-                            <div class="faq-answer">
-                                <p>¡Por supuesto! Realiza tu consulta por cualquiera de nuestros canales de
-                                    comunicacion.</p>
-                            </div>
-                        </div>
-                    </section>
-
-
-
+                    </div>
+                </section>
+            </div>
         </main>
 
         <div id="footer-component"></div>
         <script src="/static/js/components.js"></script>
-
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/darkmode.js"></script>
 
         <button id="scrollToTop" title="Volver arriba" style="display: none;">⬆</button>
-
-
+    </div>
 </body>
 
 </html>
